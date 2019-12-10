@@ -92,7 +92,7 @@ public class Login {
 			}
 		});
 		esqueceu_senha.setFont(new Font("Trebuchet MS", Font.PLAIN, 9));
-		esqueceu_senha.setBounds(113, 318, 136, 23);
+		esqueceu_senha.setBounds(113, 325, 136, 23);
 		frame.getContentPane().setLayout(null);
 		frame.getContentPane().add(entrar);
 		frame.getContentPane().add(lblConta);
@@ -102,7 +102,7 @@ public class Login {
 		frame.getContentPane().add(esqueceu_senha);
 		
 		JLabel label = new JLabel("");
-		label.setIcon(new ImageIcon("C:\\Users\\20181tadst0330\\Documents\\wwwTads-dev\\wwwTads-dev\\ProjetoLp1\\src\\imagens\\iconPerson.png"));
+		label.setIcon(new ImageIcon(Login.class.getResource("/Imagens/iconPerson.png")));
 		label.setBounds(124, 29, 125, 124);
 		frame.getContentPane().add(label);
 		
@@ -113,7 +113,7 @@ public class Login {
 				TelaInicial.frame.setVisible(true);
 			}
 		});
-		btnNewButton.setIcon(new ImageIcon("C:\\Users\\20181tadst0330\\Documents\\wwwTads-dev\\wwwTads-dev\\ProjetoLp1\\src\\imagens\\iconVoltar.png"));
+		btnNewButton.setIcon(new ImageIcon(Login.class.getResource("/Imagens/iconVoltar.png")));
 		btnNewButton.setBounds(25, 26, 46, 23);
 		frame.getContentPane().add(btnNewButton);
 	}

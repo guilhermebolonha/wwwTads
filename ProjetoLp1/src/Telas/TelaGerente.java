@@ -136,7 +136,7 @@ public class TelaGerente {
 		});
 		btnNewButton_1.setSelectedIcon(null);
 		btnNewButton_1.setBackground(Color.WHITE);
-		btnNewButton_1.setIcon(new ImageIcon("C:\\Users\\20181tadst0330\\Documents\\wwwTads-dev\\wwwTads-dev\\ProjetoLp1\\src\\imagens\\iconVoltar.png"));
+		btnNewButton_1.setIcon(new ImageIcon(TelaGerente.class.getResource("/Imagens/iconVoltar.png")));
 		btnNewButton_1.setBounds(10, 11, 41, 23);
 		frmTelaGerente.getContentPane().add(btnNewButton_1);
 		

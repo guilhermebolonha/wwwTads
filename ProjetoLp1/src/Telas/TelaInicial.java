@@ -51,7 +51,7 @@ public class TelaInicial {
 		frame.getContentPane().setLayout(null);
 
 		JLabel lblIconbankpng = new JLabel("");
-		lblIconbankpng.setIcon(new ImageIcon("C:\\Users\\20181tadst0330\\Desktop\\iconBank.png"));
+		lblIconbankpng.setIcon(new ImageIcon(TelaInicial.class.getResource("/Imagens/iconBank.png")));
 		lblIconbankpng.setBounds(20, 40, 128, 128);
 		frame.getContentPane().add(lblIconbankpng);
 
