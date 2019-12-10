@@ -1,5 +1,7 @@
 package Telas;
 
+
+
 import java.awt.EventQueue;
 
 import javax.swing.JFrame;
@@ -9,6 +11,8 @@ import javax.swing.JLabel;
 import javax.swing.ImageIcon;
 import java.awt.Color;
 import java.awt.Toolkit;
+import java.awt.event.ActionListener;
+import java.awt.event.ActionEvent;
 
 public class TelaSaque {
 
@@ -18,7 +22,7 @@ public class TelaSaque {
 	/**
 	 * Launch the application.
 	 */
-	public static void saque() {
+	public static void sacar() {
 		EventQueue.invokeLater(new Runnable() {
 			public void run() {
 				try {
@@ -43,6 +47,7 @@ public class TelaSaque {
 	 */
 	private void initialize() {
 		frmSaque = new JFrame();
+		frmSaque.setResizable(false);
 		frmSaque.setIconImage(Toolkit.getDefaultToolkit().getImage("C:\\Users\\20181tadst0330\\Desktop\\iconBank.png"));
 		frmSaque.setTitle("Saque");
 		frmSaque.getContentPane().setBackground(Color.WHITE);
@@ -51,10 +56,28 @@ public class TelaSaque {
 		frmSaque.getContentPane().setLayout(null);
 		
 		JButton btnSacar = new JButton("ok");
+		btnSacar.addActionListener(new ActionListener() {
+			public void actionPerformed(ActionEvent e) {
+				
+				//Falta Modificar o Saldo do Cliente
+				
+				
+				frmSaque.setVisible(false);
+				TelaCliente.frmTelaCliente.setVisible(true);
+			}
+		});
 		btnSacar.setBounds(90, 187, 89, 23);
 		frmSaque.getContentPane().add(btnSacar);
 		
 		JButton btnVoltar = new JButton("");
+		btnVoltar.addActionListener(new ActionListener() {
+			public void actionPerformed(ActionEvent e) {
+				
+				
+				frmSaque.setVisible(false);
+				TelaCliente.frmTelaCliente.setVisible(true);
+			}
+		});
 		btnVoltar.setIcon(new ImageIcon("C:\\Users\\20181tadst0330\\Documents\\wwwTads-dev\\wwwTads-dev\\ProjetoLp1\\src\\imagens\\iconVoltar.png"));
 		btnVoltar.setBounds(26, 11, 37, 23);
 		frmSaque.getContentPane().add(btnVoltar);
@@ -68,12 +91,12 @@ public class TelaSaque {
 		lblNewLabel.setBounds(31, 120, 128, 30);
 		frmSaque.getContentPane().add(lblNewLabel);
 		
-		JLabel lblNewLabel_1 = new JLabel("Saldo Atual");
+		JLabel lblNewLabel_1 = new JLabel("Saldo Atual" + "" );//Adiciponar Saldo Atual do Cliente
 		lblNewLabel_1.setBounds(31, 74, 77, 30);
 		frmSaque.getContentPane().add(lblNewLabel_1);
 		
 		JLabel label = new JLabel("");
-		label.setIcon(new ImageIcon("C:\\Users\\Hiago Brazzali\\Documents\\wwwTads\\ProjetoLp1\\src\\Imagens\\images.png"));
+		label.setIcon(new ImageIcon("C:\\Users\\20181tadst0330\\Desktop\\images.png"));
 		label.setBounds(154, 21, 75, 75);
 		frmSaque.getContentPane().add(label);
 	}

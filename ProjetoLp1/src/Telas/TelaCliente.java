@@ -15,12 +15,12 @@ import javax.swing.JLabel;
 
 public class TelaCliente {
 
-	private JFrame frmTelaCliente;
+	public static JFrame frmTelaCliente;
 
 	/**
 	 * Launch the application.
 	 */
-	public static void cliente() {
+	public static void iniciar() {
 		EventQueue.invokeLater(new Runnable() {
 			public void run() {
 				try {
@@ -45,82 +45,79 @@ public class TelaCliente {
 	 */
 	private void initialize() {
 		frmTelaCliente = new JFrame();
+		frmTelaCliente.setResizable(false);
 		frmTelaCliente.getContentPane().setBackground(new Color(255, 255, 255));
 		frmTelaCliente.setTitle("Tela Cliente");
-		frmTelaCliente.setIconImage(Toolkit.getDefaultToolkit().getImage("C:\\Users\\20181tadst0330\\Desktop\\sacodinheiro.png"));
-		frmTelaCliente.setBounds(100, 100, 456, 317);
+		frmTelaCliente.setIconImage(Toolkit.getDefaultToolkit().getImage(
+				"C:\\Users\\20181tadst0330\\Documents\\wwwTads-dev\\wwwTads-dev\\ProjetoLp1\\src\\imagens\\iconBank.png"));
+		frmTelaCliente.setBounds(100, 100, 384, 362);
 		frmTelaCliente.setDefaultCloseOperation(JFrame.EXIT_ON_CLOSE);
 		frmTelaCliente.getContentPane().setLayout(null);
-		
-		JLabel label = new JLabel("");
-		label.setIcon(new ImageIcon("C:\\Users\\20181tadst0330\\Documents\\wwwTads-dev\\wwwTads-dev\\ProjetoLp1\\src\\imagens\\login.png"));
-		label.setBounds(52, 39, 100, 100);
-		frmTelaCliente.getContentPane().add(label);
-		
+
 		JButton btnNewButton = new JButton("Saque");
 		btnNewButton.addActionListener(new ActionListener() {
 			public void actionPerformed(ActionEvent e) {
-				TelaSaque saque = new TelaSaque();
-				saque.saque();
+				TelaSaque.sacar();
+				frmTelaCliente.setVisible(false);
 			}
 		});
-		btnNewButton.setBounds(298, 63, 107, 23);
+		btnNewButton.setBounds(215, 40, 107, 23);
 		frmTelaCliente.getContentPane().add(btnNewButton);
-		
+
 		JButton btnNewButton_1 = new JButton("Transferencia");
-		btnNewButton_1.setBounds(298, 97, 107, 23);
-		frmTelaCliente.getContentPane().add(btnNewButton_1);
-		btnNewButton_1.addMouseListener(new MouseListener() {
-			
-			@Override
-			public void mouseReleased(MouseEvent e) {
-				// TODO Auto-generated method stub
-				
-			}
-			
-			@Override
-			public void mousePressed(MouseEvent e) {
-				// TODO Auto-generated method stub
-				
-			}
-			
-			@Override
-			public void mouseExited(MouseEvent e) {
-				// TODO Auto-generated method stub
-				
-			}
-			
-			@Override
-			public void mouseEntered(MouseEvent e) {
-				// TODO Auto-generated method stub
-				
-			}
-			
-			@Override
-			public void mouseClicked(MouseEvent e) {
-				TelaTransferencia telaT = new TelaTransferencia();
-				telaT.transferencia();
-				
-				
+		btnNewButton_1.addActionListener(new ActionListener() {
+			public void actionPerformed(ActionEvent e) {
+				TelaTransferencia.transferir();
+				frmTelaCliente.setVisible(false);
+
 			}
 		});
-		
-		
-		
-		JButton btnCadastrarCliente = new JButton("Cadastrar Cliente");
-		btnCadastrarCliente.setBounds(141, 63, 126, 23);
-		frmTelaCliente.getContentPane().add(btnCadastrarCliente);
-		
-		JButton btnConsultarCliente = new JButton("Consultar CLiente");
-		btnConsultarCliente.setBounds(141, 109, 126, 23);
-		frmTelaCliente.getContentPane().add(btnConsultarCliente);
-		
-		JButton btnAlterarCliente = new JButton("Alterar cliente");
-		btnAlterarCliente.setBounds(141, 165, 126, 23);
-		frmTelaCliente.getContentPane().add(btnAlterarCliente);
-		
-		JButton btnNewButton_4 = new JButton("Transa\u00E7\u00F5es");
-		btnNewButton_4.setBounds(141, 224, 126, 23);
-		frmTelaCliente.getContentPane().add(btnNewButton_4);
+		btnNewButton_1.setBounds(215, 74, 107, 23);
+		frmTelaCliente.getContentPane().add(btnNewButton_1);
+
+		JButton btnNewButton_2 = new JButton("Deposito");
+		btnNewButton_2.addActionListener(new ActionListener() {
+
+			public void actionPerformed(ActionEvent e) {
+				TelaDeposito.depositar();
+				frmTelaCliente.setVisible(false);
+			}
+		});
+		btnNewButton_2.setBounds(215, 108, 107, 23);
+		frmTelaCliente.getContentPane().add(btnNewButton_2);
+
+		JButton btnNewButton_3 = new JButton("Extrato");
+		btnNewButton_3.addActionListener(new ActionListener() {
+			public void actionPerformed(ActionEvent e) {
+				TelaExtrato.extrato();
+				frmTelaCliente.setVisible(false);
+
+			}
+		});
+		btnNewButton_3.setBounds(215, 142, 107, 23);
+		frmTelaCliente.getContentPane().add(btnNewButton_3);
+
+		JLabel lblNomeCliente = new JLabel("Nome Cliente" + ""); // Falta Adicionar o Nome Do CLiente
+		lblNomeCliente.setBounds(22, 215, 89, 14);
+		frmTelaCliente.getContentPane().add(lblNomeCliente);
+
+		JLabel lblSaldo = new JLabel("Saldo" + ""); // Falta mostrar o saldo Do CLiente
+		lblSaldo.setBounds(22, 234, 96, 14);
+		frmTelaCliente.getContentPane().add(lblSaldo);
+
+		JLabel label = new JLabel("");
+		label.setIcon(new ImageIcon("C:\\Users\\20181tadst0330\\Desktop\\iconPerson.png"));
+		label.setBounds(34, 63, 125, 125);
+		frmTelaCliente.getContentPane().add(label);
+
+		JButton btnSairDaConta = new JButton("Sair da Conta");
+		btnSairDaConta.addActionListener(new ActionListener() {
+			public void actionPerformed(ActionEvent e) {
+				frmTelaCliente.dispose();
+				Login.frame.setVisible(true);
+			}
+		});
+		btnSairDaConta.setBounds(197, 255, 125, 23);
+		frmTelaCliente.getContentPane().add(btnSairDaConta);
 	}
 }

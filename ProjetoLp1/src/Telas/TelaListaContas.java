@@ -1,11 +1,15 @@
 package Telas;
 
-import java.awt.EventQueue;
-
-import javax.swing.JFrame;
 import java.awt.Color;
+import java.awt.EventQueue;
 import java.awt.Toolkit;
-import javax.swing.JLabel;
+import java.awt.event.ActionEvent;
+import java.awt.event.ActionListener;
+
+import javax.swing.ImageIcon;
+import javax.swing.JButton;
+import javax.swing.JFrame;
+import javax.swing.JList;
 
 public class TelaListaContas {
 
@@ -14,7 +18,7 @@ public class TelaListaContas {
 	/**
 	 * Launch the application.
 	 */
-	public static void iniciar() {
+	public static void listar() {
 		EventQueue.invokeLater(new Runnable() {
 			public void run() {
 				try {
@@ -43,10 +47,26 @@ public class TelaListaContas {
 		frame.getContentPane().setBackground(Color.WHITE);
 		frame.getContentPane().setLayout(null);
 		
-		JLabel label = new JLabel("");
-		label.setBounds(57, 64, 275, 389);
-		frame.getContentPane().add(label);
+		JButton button = new JButton("");
+		button.addActionListener(new ActionListener() {
+			public void actionPerformed(ActionEvent e) {
+				frame.setVisible(false);
+				TelaGerente.frmTelaGerente.setVisible(true);
+			}
+		});
+		button.setIcon(new ImageIcon("C:\\Users\\20181tadst0330\\Documents\\wwwTads-dev\\wwwTads-dev\\ProjetoLp1\\src\\imagens\\iconVoltar.png"));
+		button.setBounds(34, 35, 46, 23);
+		frame.getContentPane().add(button);
+		
+		JList list = new JList();
+		list.setBounds(75, 111, 255, 359);
+		frame.getContentPane().add(list);
+		// Listar  as contas da agencia
+		
+		
 		frame.setBounds(100, 100, 450, 591);
+		
+		
 		frame.setDefaultCloseOperation(JFrame.EXIT_ON_CLOSE);
 	}
 }

@@ -1,5 +1,4 @@
 package Telas;
-
 import java.awt.Color;
 import java.awt.EventQueue;
 import java.awt.Font;
@@ -15,14 +14,14 @@ import javax.swing.JTextField;
 
 public class Login {
 
-	private JFrame frame;
+	public static JFrame frame;
 	private JTextField num_conta;
 	private JTextField num_senha;
 
 	/**
 	 * Launch the application.
 	 */
-	public static void Login() {
+	public static void iniciar() {
 		EventQueue.invokeLater(new Runnable() {
 			public void run() {
 				try {
@@ -47,28 +46,34 @@ public class Login {
 	 */
 	private void initialize() {
 		frame = new JFrame();
+		frame.setResizable(false);
 		frame.getContentPane().setBackground(Color.WHITE);
 		frame.setFont(new Font("Times New Roman", Font.PLAIN, 12));
 		frame.setForeground(new Color(255, 153, 0));
-		frame.setIconImage(Toolkit.getDefaultToolkit().getImage("C:\\Users\\20181tadst0330\\Desktop\\sacodinheiro.png"));
+		frame.setIconImage(Toolkit.getDefaultToolkit().getImage("C:\\Users\\20181tadst0330\\Documents\\wwwTads-dev\\wwwTads-dev\\ProjetoLp1\\src\\imagens\\iconBank.png"));
 		frame.setBounds(100, 100, 387, 415);
 		frame.setDefaultCloseOperation(JFrame.EXIT_ON_CLOSE);
 		
 		JButton entrar = new JButton("entrar");
 		entrar.setBounds(113, 273, 89, 23);
 		entrar.addActionListener(new ActionListener() {
-			@SuppressWarnings("static-access")
 			public void actionPerformed(ActionEvent arg0) {
-				TelaCliente cliente = new TelaCliente();
-				cliente.cliente();
-			}
+				TelaCliente telaCliente = new TelaCliente();
+				telaCliente.iniciar();
+				frame.setVisible(false);
+			}	
 		});
 		
 		JLabel lblConta = new JLabel("conta");
 		lblConta.setBounds(58, 187, 46, 14);
+		//Conferir a Conta Do Cliente
 		
 		JLabel lblSenha = new JLabel("senha");
 		lblSenha.setBounds(58, 228, 46, 14);
+		
+		//Conferir a Senha Do Cliente
+
+		//Para entao entrar (Linha 58) nao Conta 
 		
 		num_conta = new JTextField();
 		num_conta.setBounds(113, 184, 195, 20);
@@ -78,24 +83,38 @@ public class Login {
 		num_senha.setBounds(114, 225, 194, 20);
 		num_senha.setColumns(10);
 		
+		JButton esqueceu_senha = new JButton("esqueceu a senha");
+		esqueceu_senha.addActionListener(new ActionListener() {
+			public void actionPerformed(ActionEvent e) {
+				TelaEsqueceuSenha tela = new TelaEsqueceuSenha();
+				tela.iniciar();
+				frame.setVisible(false);
+			}
+		});
+		esqueceu_senha.setFont(new Font("Trebuchet MS", Font.PLAIN, 9));
+		esqueceu_senha.setBounds(113, 318, 136, 23);
 		frame.getContentPane().setLayout(null);
 		frame.getContentPane().add(entrar);
 		frame.getContentPane().add(lblConta);
 		frame.getContentPane().add(lblSenha);
 		frame.getContentPane().add(num_conta);
 		frame.getContentPane().add(num_senha);
+		frame.getContentPane().add(esqueceu_senha);
 		
 		JLabel label = new JLabel("");
 		label.setIcon(new ImageIcon("C:\\Users\\20181tadst0330\\Documents\\wwwTads-dev\\wwwTads-dev\\ProjetoLp1\\src\\imagens\\iconPerson.png"));
 		label.setBounds(124, 29, 125, 124);
 		frame.getContentPane().add(label);
 		
-		JLabel lblNewLabel = new JLabel("");
-		lblNewLabel.setBounds(10, 24, 46, 14);
-		frame.getContentPane().add(lblNewLabel);
-		
-		JLabel label_1 = new JLabel("");
-		label_1.setBounds(10, 11, 0, 0);
-		frame.getContentPane().add(label_1);
+		JButton btnNewButton = new JButton("");
+		btnNewButton.addActionListener(new ActionListener() {
+			public void actionPerformed(ActionEvent e) {
+				frame.setVisible(false);
+				TelaInicial.frame.setVisible(true);
+			}
+		});
+		btnNewButton.setIcon(new ImageIcon("C:\\Users\\20181tadst0330\\Documents\\wwwTads-dev\\wwwTads-dev\\ProjetoLp1\\src\\imagens\\iconVoltar.png"));
+		btnNewButton.setBounds(25, 26, 46, 23);
+		frame.getContentPane().add(btnNewButton);
 	}
 }

@@ -1,18 +1,20 @@
 package Telas;
 
 import java.awt.EventQueue;
+import java.awt.Font;
 
-import javax.swing.JFrame;
 import javax.swing.GroupLayout;
 import javax.swing.GroupLayout.Alignment;
-import com.jgoodies.forms.layout.FormLayout;
-import com.jgoodies.forms.layout.ColumnSpec;
-import com.jgoodies.forms.layout.RowSpec;
+import javax.swing.JButton;
+import javax.swing.JFrame;
 import javax.swing.JLabel;
 import javax.swing.JTextField;
 import javax.swing.LayoutStyle.ComponentPlacement;
-import java.awt.Font;
-import javax.swing.JButton;
+import java.awt.Color;
+import javax.swing.ImageIcon;
+import java.awt.event.ActionListener;
+import java.awt.event.ActionEvent;
+import java.awt.Toolkit;
 
 public class TelaTransferencia {
 
@@ -23,7 +25,7 @@ public class TelaTransferencia {
 	/**
 	 * Launch the application.
 	 */
-	public static void transferencia() {
+	public static void transferir() {
 		EventQueue.invokeLater(new Runnable() {
 			public void run() {
 				try {
@@ -48,7 +50,10 @@ public class TelaTransferencia {
 	 */
 	private void initialize() {
 		frame = new JFrame();
-		frame.setBounds(100, 100, 450, 300);
+		frame.setIconImage(Toolkit.getDefaultToolkit().getImage("C:\\Users\\20181tadst0330\\Documents\\wwwTads-dev\\wwwTads-dev\\ProjetoLp1\\src\\imagens\\iconBank.png"));
+		frame.setResizable(false);
+		frame.getContentPane().setBackground(Color.WHITE);
+		frame.setBounds(100, 100, 297, 280);
 		frame.setDefaultCloseOperation(JFrame.EXIT_ON_CLOSE);
 		
 		JLabel lblInsiraAConta = new JLabel("Insira a conta para transfer\u00EAncia");
@@ -64,12 +69,32 @@ public class TelaTransferencia {
 		JLabel lblR = new JLabel("R$");
 		lblR.setFont(new Font("Tahoma", Font.PLAIN, 14));
 		
-		JButton btnNewButton = new JButton("New button");
+		JButton btnNewButton = new JButton("ok");
+		btnNewButton.addActionListener(new ActionListener() {
+			public void actionPerformed(ActionEvent e) {
+				
+				// Falta Alterar saldo das Contas.
+				frame.setVisible(false);
+				TelaCliente.frmTelaCliente.setVisible(true);
+				
+			}
+		});
+		
+		JButton button = new JButton("");
+		button.addActionListener(new ActionListener() {
+			public void actionPerformed(ActionEvent e) {
+				frame.setVisible(false);
+				TelaCliente.frmTelaCliente.setVisible(true);
+			}
+		});
+		button.setIcon(new ImageIcon("C:\\Users\\20181tadst0330\\Documents\\wwwTads-dev\\wwwTads-dev\\ProjetoLp1\\src\\imagens\\iconVoltar.png"));
 		GroupLayout groupLayout = new GroupLayout(frame.getContentPane());
 		groupLayout.setHorizontalGroup(
 			groupLayout.createParallelGroup(Alignment.LEADING)
 				.addGroup(groupLayout.createSequentialGroup()
-					.addGap(82)
+					.addContainerGap()
+					.addComponent(button, GroupLayout.PREFERRED_SIZE, 54, GroupLayout.PREFERRED_SIZE)
+					.addGap(18)
 					.addGroup(groupLayout.createParallelGroup(Alignment.LEADING)
 						.addGroup(groupLayout.createSequentialGroup()
 							.addComponent(lblInsiraOValor)
@@ -86,17 +111,22 @@ public class TelaTransferencia {
 					.addComponent(lblR)
 					.addPreferredGap(ComponentPlacement.RELATED)
 					.addComponent(textField_1, GroupLayout.PREFERRED_SIZE, GroupLayout.DEFAULT_SIZE, GroupLayout.PREFERRED_SIZE)
-					.addContainerGap(250, Short.MAX_VALUE))
+					.addContainerGap(269, Short.MAX_VALUE))
 				.addGroup(groupLayout.createSequentialGroup()
-					.addGap(164)
+					.addGap(134)
 					.addComponent(btnNewButton)
-					.addContainerGap(185, Short.MAX_VALUE))
+					.addContainerGap(280, Short.MAX_VALUE))
 		);
 		groupLayout.setVerticalGroup(
 			groupLayout.createParallelGroup(Alignment.LEADING)
 				.addGroup(groupLayout.createSequentialGroup()
-					.addGap(39)
-					.addComponent(lblInsiraAConta)
+					.addGroup(groupLayout.createParallelGroup(Alignment.TRAILING, false)
+						.addGroup(Alignment.LEADING, groupLayout.createSequentialGroup()
+							.addGap(10)
+							.addComponent(button, 0, 0, Short.MAX_VALUE))
+						.addGroup(Alignment.LEADING, groupLayout.createSequentialGroup()
+							.addGap(25)
+							.addComponent(lblInsiraAConta)))
 					.addGap(11)
 					.addComponent(textField, GroupLayout.PREFERRED_SIZE, GroupLayout.DEFAULT_SIZE, GroupLayout.PREFERRED_SIZE)
 					.addGap(18)
@@ -105,9 +135,9 @@ public class TelaTransferencia {
 					.addGroup(groupLayout.createParallelGroup(Alignment.BASELINE)
 						.addComponent(lblR)
 						.addComponent(textField_1, GroupLayout.PREFERRED_SIZE, GroupLayout.DEFAULT_SIZE, GroupLayout.PREFERRED_SIZE))
-					.addGap(36)
+					.addGap(49)
 					.addComponent(btnNewButton)
-					.addContainerGap(48, Short.MAX_VALUE))
+					.addContainerGap(33, Short.MAX_VALUE))
 		);
 		frame.getContentPane().setLayout(groupLayout);
 	}
