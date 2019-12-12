@@ -8,27 +8,13 @@ import LP.Util;
 public class HandlerGerente {
 	static Scanner entrada = new Scanner(System.in);
 
-	public static void cadastraGerente() {
+	public static void cadastraGerente(String nome, String cpf, String endereco, int matricula, double salario) {
 
 		if (!Principal.listaAgencia.isEmpty()) {
-
-			System.out.println("Digite o CPF do gerente");
-			String cpf = Util.leString(entrada);
 
 			if (!UtilBanco.pesquisaGerente(cpf)) {
 
 				Agencia agencia = HandlerAgencia.consultarAgencia();
-				System.out.println("Digite nome:");
-				String nome = Util.leString(entrada);
-
-				System.out.println("Digite Endereco:");
-				String endereco = Util.leString(entrada);
-
-				System.out.println("Digite o numero de matricula do gerente");
-				int matricula = Util.leInt(entrada);
-
-				System.out.println("Digite o salario do gerente");
-				double salario = Util.leDouble(entrada);
 
 				Gerente gerente = new Gerente(nome, cpf, endereco, agencia, salario, matricula);
 
@@ -41,11 +27,11 @@ public class HandlerGerente {
 
 	}
 
-	public static boolean removeGerente() {
+	public static boolean removeGerente(String cpf) {
 
 		boolean removido = false;
 
-		Gerente gerente = consultarGerente();
+		Gerente gerente = consultarGerente(cpf);
 
 		if (gerente != null) {
 
@@ -59,12 +45,10 @@ public class HandlerGerente {
 
 	}
 
-	public static Gerente consultarGerente() {
+	public static Gerente consultarGerente(String cpf) {
 
 		boolean encontrado = false;
 
-		System.out.println("Digite o CPF do gerente: ");
-		String cpf = Util.leString(entrada);
 		Gerente gerenteAux = new Gerente(cpf);
 		Iterator<Gerente> iterador = Principal.listaGerente.iterator();
 		iterador = Principal.listaGerente.iterator(); // para o iterador retornar para o início da lista
@@ -101,9 +85,9 @@ public class HandlerGerente {
 
 	}
 
-	public static void alterarGerente() {
+	public static void alterarGerente(String cpf) {
 
-		Gerente gerenteAux = consultarGerente();
+		Gerente gerenteAux = consultarGerente(cpf);
 		if (gerenteAux != null) {
 
 			boolean sair = false;
