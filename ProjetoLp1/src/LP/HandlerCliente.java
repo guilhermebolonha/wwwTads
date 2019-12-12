@@ -8,22 +8,15 @@ import java.util.Scanner;
 public class HandlerCliente {
 	static Scanner entrada = new Scanner(System.in);
 
-	public static boolean cadastrarCliente() {
+	public static boolean cadastrarCliente(String cpf, String nome, String endereco) {
 		boolean inserido = false;
 		
 		if (!Principal.listaAgencia.isEmpty()) {
-			
-			System.out.println("Digite o CPF do Cliente: ");
-			String cpf = Util.leString(entrada);
-			
+		
 
 			// verifica se o cliente não existe
 			if (!UtilBanco.pesquisaCliente(cpf)) {
-
-				System.out.println("Digite o nome: ");
-				String nome = Util.leString(entrada);
-				System.out.println("Digite o endereço: ");
-				String endereco = Util.leString(entrada);
+				
 				Cliente cliente = new Cliente(nome, cpf, endereco);
 
 				Principal.listaCliente.add(cliente);
@@ -34,11 +27,11 @@ public class HandlerCliente {
 		return inserido; 
 	}
 
-	public static boolean removeCliente() {
-	//Ainda tem que ver
+	public static boolean removeCliente(String cpf) {
+
 		boolean removido = false;
 
-		Cliente cliente = consultarCliente();
+		Cliente cliente = consultarCliente(cpf);
 
 		if (cliente != null) {
 			
@@ -70,11 +63,9 @@ public class HandlerCliente {
 
 	}
 
-	public static Cliente consultarCliente() {
+	public static Cliente consultarCliente(String cpf) {
 		boolean encontrado = false;
 		
-		System.out.println("Digite o CPF do cliente: ");
-		String cpf = Util.leString(entrada);
 		Cliente clienteAux = new Cliente(cpf);
 		Iterator<Cliente> iterador = Principal.listaCliente.iterator();
 		iterador = Principal.listaCliente.iterator(); // para o iterador retornar para o início da lista
@@ -92,9 +83,9 @@ public class HandlerCliente {
 
 	}
 
-	public static void alterarCliente() {
+	public static void alterarCliente(String cpf) {
 
-		Cliente clienteAux = consultarCliente();
+		Cliente clienteAux = consultarCliente(cpf);
 
 		if (clienteAux != null) {
 			boolean sair = false;
