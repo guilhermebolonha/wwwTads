@@ -13,8 +13,6 @@ import javax.swing.JLabel;
 import javax.swing.JTextField;
 
 import LP.Conta;
-import LP.Util;
-import LP.UtilBanco;
 
 public class Login {
 

@@ -95,10 +95,7 @@ public class Principal {
 				op = Util.leInt(entrada);
 				switch (op) {
 				case 1:
-					 if(HandlerCliente.cadastrarCliente())
-					 System.out.println("Cliente cadastrado com sucesso!");
-					else
-					System.out.println("Cliente não cadastrado.");
+					 
 					
 					break;
 

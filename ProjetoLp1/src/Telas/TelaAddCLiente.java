@@ -12,6 +12,9 @@ import javax.swing.JFrame;
 import javax.swing.JLabel;
 import javax.swing.JTextField;
 
+import LP.Cliente;
+import LP.HandlerCliente;
+
 public class TelaAddCLiente {
 
 	public static JFrame frmNewClient;
@@ -20,6 +23,9 @@ public class TelaAddCLiente {
 	private JTextField textField_2;
 	private JTextField textField_3;
 	private JTextField textField_4;
+	
+	Cliente clientinho = new Cliente();
+	String nome, CPF, endereco;
 
 	/**
 	 * Launch the application.
@@ -62,16 +68,19 @@ public class TelaAddCLiente {
 		textField.setBounds(90, 162, 160, 20);
 		frmNewClient.getContentPane().add(textField);
 		textField.setColumns(10);
+		
 
 		textField_1 = new JTextField();
 		textField_1.setBounds(90, 193, 160, 20);
 		frmNewClient.getContentPane().add(textField_1);
 		textField_1.setColumns(10);
+		
 
 		textField_2 = new JTextField();
 		textField_2.setBounds(90, 224, 160, 20);
 		frmNewClient.getContentPane().add(textField_2);
 		textField_2.setColumns(10);
+	
 
 		textField_3 = new JTextField();
 		textField_3.setBounds(90, 313, 136, 20);
@@ -88,11 +97,24 @@ public class TelaAddCLiente {
 		btnNewButton.setIcon(new ImageIcon("C:\\Users\\20181tadst0330\\Desktop\\iconVoltar.png"));
 		btnNewButton.setBounds(23, 23, 46, 23);
 		frmNewClient.getContentPane().add(btnNewButton);
+		
+		
+		nome = textField.getText();
+		clientinho.setNome(nome);
+		CPF = textField.getText();
+		clientinho.setCpf(CPF);
+		endereco= textField.getText();
+		clientinho.setEndereco(endereco);
 
 		JButton btnNewButton_1 = new JButton("ok");
 		btnNewButton_1.addActionListener(new ActionListener() {
 			public void actionPerformed(ActionEvent e) {
-				// Confirmar e Salvar o Novo Cliente
+				System.out.println(nome + CPF + endereco);
+				if(HandlerCliente.cadastrarCliente(clientinho))
+					 System.out.println("Cliente cadastrado com sucesso!");
+					else
+					System.out.println("Cliente não cadastrado.");
+				
 
 				frmNewClient.setVisible(false);
 				TelaGerente.frmTelaGerente.setVisible(true);

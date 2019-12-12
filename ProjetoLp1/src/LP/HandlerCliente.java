@@ -8,18 +8,20 @@ import java.util.Scanner;
 public class HandlerCliente {
 	static Scanner entrada = new Scanner(System.in);
 
-	public static boolean cadastrarCliente(String cpf, String nome, String endereco) {
+	public static boolean cadastrarCliente(Cliente clientinho) {
 		boolean inserido = false;
+		
+		String cpf = clientinho.getCpf();
+		String nome = clientinho.getNome();
+		String endereco = clientinho.getEndereco();
 		
 		if (!Principal.listaAgencia.isEmpty()) {
 		
 
 			// verifica se o cliente não existe
 			if (!UtilBanco.pesquisaCliente(cpf)) {
-				
-				Cliente cliente = new Cliente(nome, cpf, endereco);
 
-				Principal.listaCliente.add(cliente);
+				Principal.listaCliente.add(clientinho);
 				inserido = true;
 			}
 
