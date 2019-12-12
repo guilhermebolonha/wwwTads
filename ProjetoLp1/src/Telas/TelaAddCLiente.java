@@ -59,7 +59,7 @@ public class TelaAddCLiente {
 		frmNewClient.getContentPane().setBackground(Color.WHITE);
 		frmNewClient.setTitle("New Client");
 		frmNewClient
-				.setIconImage(Toolkit.getDefaultToolkit().getImage("C:\\Users\\20181tadst0330\\Desktop\\iconBank.png"));
+				.setIconImage(Toolkit.getDefaultToolkit().getImage(TelaAddCLiente.class.getResource("/Imagens/iconBank.png")));
 		frmNewClient.setBounds(100, 100, 311, 491);
 		frmNewClient.setDefaultCloseOperation(JFrame.EXIT_ON_CLOSE);
 		frmNewClient.getContentPane().setLayout(null);

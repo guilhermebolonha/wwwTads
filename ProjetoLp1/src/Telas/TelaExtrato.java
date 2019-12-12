@@ -52,22 +52,22 @@ public class TelaExtrato {
 		frmTelaExtrato = new JFrame();
 		frmTelaExtrato.setIconImage(Toolkit.getDefaultToolkit().getImage("C:\\Users\\20181tadst0330\\Documents\\wwwTads-dev\\wwwTads-dev\\ProjetoLp1\\src\\imagens\\iconBank.png"));
 		frmTelaExtrato.setTitle("Tela Extrato");
-		frmTelaExtrato.setResizable(false);
-		frmTelaExtrato.getContentPane().setBackground(Color.LIGHT_GRAY);
+		frmTelaExtrato.getContentPane().setBackground(Color.WHITE);
 		frmTelaExtrato.getContentPane().setLayout(null);
 		
 		JButton button = new JButton("");
 		button.addActionListener(new ActionListener() {
 			public void actionPerformed(ActionEvent e) {
 				frmTelaExtrato.setVisible(false);
-				TelaCliente.frmTelaCliente.setVisible(true);
-			}
+				TelaCliente tela = new TelaCliente();
+				tela.iniciar(continha);			}
 		});
 		button.setIcon(new ImageIcon(TelaExtrato.class.getResource("/Imagens/iconVoltar.png")));
 		button.setBounds(29, 27, 49, 23);
 		frmTelaExtrato.getContentPane().add(button);
 		
 		JList list = new JList();
+		list.setValueIsAdjusting(true);
 		list.setModel(new AbstractListModel() {
 			String[] values = new String[] {continha.extrato()};
 			public int getSize() {
@@ -81,7 +81,7 @@ public class TelaExtrato {
 		//Falta Instanciar A Lista COm o Extrato Do Cliente
 		
 		
-		list.setBounds(137, 88, 232, 145);
+		list.setBounds(10, 73, 232, 145);
 		frmTelaExtrato.getContentPane().add(list);
 		frmTelaExtrato.setBounds(100, 100, 450, 300);
 		frmTelaExtrato.setDefaultCloseOperation(JFrame.EXIT_ON_CLOSE);

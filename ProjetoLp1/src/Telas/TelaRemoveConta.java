@@ -52,7 +52,7 @@ public class TelaRemoveConta {
 	private void initialize() {
 		frame = new JFrame();
 		frame.setResizable(false);
-		frame.setIconImage(Toolkit.getDefaultToolkit().getImage("C:\\Users\\20181tadst0330\\Documents\\wwwTads-dev\\wwwTads-dev\\ProjetoLp1\\src\\imagens\\iconBank.png"));
+		frame.setIconImage(Toolkit.getDefaultToolkit().getImage(TelaRemoveConta.class.getResource("/Imagens/iconBank.png")));
 		frame.getContentPane().setBackground(Color.WHITE);
 		frame.getContentPane().setLayout(null);
 		
@@ -84,7 +84,7 @@ public class TelaRemoveConta {
 				TelaGerente.frmTelaGerente.setVisible(true);
 			}
 		});
-		btnRemover.setBounds(95, 289, 89, 23);
+		btnRemover.setBounds(118, 251, 89, 23);
 		frame.getContentPane().add(btnRemover);
 		
 		JButton button = new JButton("");

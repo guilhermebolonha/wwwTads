@@ -102,7 +102,7 @@ public class TelaRemoveCliente {
 		button.setBounds(24, 11, 47, 23);
 		frmRemoveCliente.getContentPane().add(button);
 		frmRemoveCliente
-				.setIconImage(Toolkit.getDefaultToolkit().getImage("C:\\Users\\20181tadst0330\\Desktop\\iconBank.png"));
+				.setIconImage(Toolkit.getDefaultToolkit().getImage(TelaRemoveCliente.class.getResource("/Imagens/iconBank.png")));
 		frmRemoveCliente.setBounds(100, 100, 295, 316);
 		frmRemoveCliente.setDefaultCloseOperation(JFrame.EXIT_ON_CLOSE);
 	}

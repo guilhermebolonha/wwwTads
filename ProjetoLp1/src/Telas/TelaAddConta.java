@@ -64,7 +64,7 @@ public class TelaAddConta {
 	private void initialize() {
 		frmNewConta = new JFrame();
 		frmNewConta.setResizable(false);
-		frmNewConta.setIconImage(Toolkit.getDefaultToolkit().getImage("C:\\Users\\20181tadst0330\\Documents\\wwwTads-dev\\wwwTads-dev\\ProjetoLp1\\src\\imagens\\iconBank.png"));
+		frmNewConta.setIconImage(Toolkit.getDefaultToolkit().getImage(TelaAddConta.class.getResource("/Imagens/iconBank.png")));
 		frmNewConta.getContentPane().setBackground(Color.WHITE);
 		frmNewConta.setTitle("New Conta");
 		frmNewConta.setBounds(100, 100, 288, 316);

@@ -64,6 +64,7 @@ public class TelaCliente {
 			public void actionPerformed(ActionEvent e) {
 				TelaSaque.sacar(continha);
 				frmTelaCliente.setVisible(false);
+				
 			}
 		});
 		btnNewButton.setBounds(215, 40, 107, 23);
@@ -103,7 +104,7 @@ public class TelaCliente {
 		frmTelaCliente.getContentPane().add(btnNewButton_3);
 
 		JLabel lblNomeCliente = new JLabel("Nome Cliente" + continha.getCliente().getNome()); 
-		lblNomeCliente.setBounds(22, 215, 89, 14);
+		lblNomeCliente.setBounds(22, 215, 158, 14);
 		frmTelaCliente.getContentPane().add(lblNomeCliente);
 
 		JLabel lblSaldo = new JLabel("Saldo: R$" + continha.getSaldo());

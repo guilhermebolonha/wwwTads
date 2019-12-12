@@ -93,7 +93,8 @@ public class TelaDeposito {
 
 				if (operacao2.efetuar()) {
 					System.out.println("Efetuado com sucesso");
-					TelaCliente.frmTelaCliente.setVisible(true);
+					TelaCliente tela = new TelaCliente();
+					tela.iniciar(continha);			
 					frmDeposito.setVisible(false);
 				} else {
 					System.err.println("Não foi possivel realizar");

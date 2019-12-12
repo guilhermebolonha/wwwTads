@@ -47,8 +47,7 @@ public class TelaListaClientes {
 	 */
 	private void initialize() {
 		frame = new JFrame();
-		frame.setIconImage(Toolkit.getDefaultToolkit().getImage(
-				"C:\\Users\\20181tadst0330\\Documents\\wwwTads-dev\\wwwTads-dev\\ProjetoLp1\\src\\imagens\\iconBank.png"));
+		frame.setIconImage(Toolkit.getDefaultToolkit().getImage(TelaListaClientes.class.getResource("/Imagens/iconBank.png")));
 		frame.setResizable(false);
 		frame.setBounds(100, 100, 450, 300);
 		frame.setDefaultCloseOperation(JFrame.EXIT_ON_CLOSE);

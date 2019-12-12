@@ -50,7 +50,7 @@ public class TelaGerente {
 		frmTelaGerente.setResizable(false);
 		frmTelaGerente.getContentPane().setBackground(new Color(255, 255, 255));
 		frmTelaGerente.setTitle("Tela Gerente");
-		frmTelaGerente.setIconImage(Toolkit.getDefaultToolkit().getImage("C:\\Users\\20181tadst0330\\Documents\\wwwTads-dev\\wwwTads-dev\\ProjetoLp1\\src\\imagens\\iconBank.png"));
+		frmTelaGerente.setIconImage(Toolkit.getDefaultToolkit().getImage(TelaGerente.class.getResource("/Imagens/iconBank.png")));
 		frmTelaGerente.setBounds(100, 100, 409, 654);
 		frmTelaGerente.setDefaultCloseOperation(JFrame.EXIT_ON_CLOSE);
 		frmTelaGerente.getContentPane().setLayout(null);

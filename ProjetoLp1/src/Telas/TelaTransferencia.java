@@ -95,7 +95,8 @@ public class TelaTransferencia {
 						System.out.println("Efetuado com sucesso");
 						
 						frame.setVisible(false);
-						TelaCliente.frmTelaCliente.setVisible(true);
+						TelaCliente tela = new TelaCliente();
+						tela.iniciar(continha);
 					} else {
 						System.err.println("Não foi possivel realizar");
 					}

@@ -48,7 +48,7 @@ public class TelaListaContas {
 	 */
 	private void initialize() {
 		frame = new JFrame();
-		frame.setIconImage(Toolkit.getDefaultToolkit().getImage("C:\\Users\\20181tadst0330\\Desktop\\iconBank.png"));
+		frame.setIconImage(Toolkit.getDefaultToolkit().getImage(TelaListaContas.class.getResource("/Imagens/iconBank.png")));
 		frame.getContentPane().setBackground(Color.WHITE);
 		frame.getContentPane().setLayout(null);
 
@@ -63,9 +63,14 @@ public class TelaListaContas {
 		button.setBounds(34, 35, 46, 23);
 		frame.getContentPane().add(button);
 
-		JList list = new JList();
-		list.setModel(new AbstractListModel() {
-			String[] values = new String[] {TelaInicial.agencia.lstContas.toString()a};
+		JList<Object> list = new JList<Object>();
+		list.setValueIsAdjusting(true);
+		list.setModel(new AbstractListModel<Object>() {
+			/**
+			 * 
+			 */
+			private static final long serialVersionUID = 1L;
+			String[] values = new String[] {TelaInicial.agencia.lstContas.toString()};
 			public int getSize() {
 				return values.length;
 			}

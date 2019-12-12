@@ -1,7 +1,5 @@
 package Telas;
 
-
-
 import java.awt.EventQueue;
 
 import javax.swing.JFrame;
@@ -22,7 +20,6 @@ public class TelaSaque {
 	private JFrame frmSaque;
 	private JTextField textSaque;
 	private static Conta continha;
-
 
 	/**
 	 * Launch the application.
@@ -61,11 +58,11 @@ public class TelaSaque {
 		frmSaque.setBounds(100, 100, 298, 287);
 		frmSaque.setDefaultCloseOperation(JFrame.EXIT_ON_CLOSE);
 		frmSaque.getContentPane().setLayout(null);
-		
+
 		JButton btnSacar = new JButton("ok");
 		btnSacar.addActionListener(new ActionListener() {
 			public void actionPerformed(ActionEvent e) {
-				
+
 				Operacao operacao = new Saque(continha, Double.valueOf(textSaque.getText()));
 
 				if (operacao.efetuar())
@@ -73,24 +70,22 @@ public class TelaSaque {
 
 				else
 					System.err.println("Não foi possivel realizar");
-			
-				
+
 				frmSaque.setVisible(false);
-				
-				TelaCliente.frmTelaCliente.setVisible(true);
-				
+				TelaCliente.frmTelaCliente.repaint();
+
+				TelaCliente tela = new TelaCliente();
+				tela.iniciar(continha);
 			}
 		});
-		
-		
+
 		btnSacar.setBounds(90, 187, 89, 23);
 		frmSaque.getContentPane().add(btnSacar);
-		
+
 		JButton btnVoltar = new JButton("");
 		btnVoltar.addActionListener(new ActionListener() {
 			public void actionPerformed(ActionEvent e) {
-				
-				
+
 				frmSaque.setVisible(false);
 				TelaCliente.frmTelaCliente.setVisible(true);
 			}
@@ -98,22 +93,23 @@ public class TelaSaque {
 		btnVoltar.setIcon(new ImageIcon(TelaSaque.class.getResource("/Imagens/iconVoltar.png")));
 		btnVoltar.setBounds(26, 11, 37, 23);
 		frmSaque.getContentPane().add(btnVoltar);
-		
+
 		textSaque = new JTextField();
 		textSaque.setBounds(118, 125, 97, 20);
 		frmSaque.getContentPane().add(textSaque);
 		textSaque.setColumns(10);
-		
+
 		JLabel lblNewLabel = new JLabel("Valor a sacar");
 		lblNewLabel.setBounds(31, 120, 128, 30);
 		frmSaque.getContentPane().add(lblNewLabel);
-		
-		JLabel lblNewLabel_1 = new JLabel("Saldo Atual: R$" + continha.getSaldo() );//Adiciponar Saldo Atual do Cliente
+
+		JLabel lblNewLabel_1 = new JLabel("Saldo Atual: R$" + continha.getSaldo());// Adiciponar Saldo Atual do Cliente
 		lblNewLabel_1.setBounds(31, 74, 77, 30);
 		frmSaque.getContentPane().add(lblNewLabel_1);
-		
+
 		JLabel label = new JLabel("");
-		label.setIcon(new ImageIcon("C:\\Users\\Hiago Brazzali\\Documents\\wwwTads\\ProjetoLp1\\src\\Imagens\\images.png"));
+		label.setIcon(
+				new ImageIcon("C:\\Users\\Hiago Brazzali\\Documents\\wwwTads\\ProjetoLp1\\src\\Imagens\\images.png"));
 		label.setBounds(154, 21, 75, 75);
 		frmSaque.getContentPane().add(label);
 	}
