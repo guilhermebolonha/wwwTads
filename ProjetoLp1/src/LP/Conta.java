@@ -35,6 +35,10 @@ public abstract class Conta implements Serializable {
 		this.codigoConta = codigo;
 	}
 
+	public Cliente getCliente() {
+		return cliente;
+	}
+
 	@Override
 	public boolean equals(Object obj) {
 		if (this == obj)

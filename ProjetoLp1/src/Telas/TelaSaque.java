@@ -13,16 +13,20 @@ import java.awt.Color;
 import java.awt.Toolkit;
 import java.awt.event.ActionListener;
 import java.awt.event.ActionEvent;
+import LP.Conta;
 
 public class TelaSaque {
 
 	private JFrame frmSaque;
 	private JTextField textSaque;
+	private static Conta continha;
+
 
 	/**
 	 * Launch the application.
 	 */
-	public static void sacar() {
+	public static void sacar(Conta conta) {
+		continha = conta;
 		EventQueue.invokeLater(new Runnable() {
 			public void run() {
 				try {
@@ -60,7 +64,7 @@ public class TelaSaque {
 		btnSacar.addActionListener(new ActionListener() {
 			public void actionPerformed(ActionEvent e) {
 				
-				//Falta Modificar o Saldo do Cliente
+				
 				
 				
 				frmSaque.setVisible(false);
@@ -88,11 +92,11 @@ public class TelaSaque {
 		frmSaque.getContentPane().add(textSaque);
 		textSaque.setColumns(10);
 		
-		JLabel lblNewLabel = new JLabel("valor a sacar");
+		JLabel lblNewLabel = new JLabel("Valor a sacar");
 		lblNewLabel.setBounds(31, 120, 128, 30);
 		frmSaque.getContentPane().add(lblNewLabel);
 		
-		JLabel lblNewLabel_1 = new JLabel("Saldo Atual" + "" );//Adiciponar Saldo Atual do Cliente
+		JLabel lblNewLabel_1 = new JLabel("Saldo Atual: R$" + continha.getSaldo() );//Adiciponar Saldo Atual do Cliente
 		lblNewLabel_1.setBounds(31, 74, 77, 30);
 		frmSaque.getContentPane().add(lblNewLabel_1);
 		

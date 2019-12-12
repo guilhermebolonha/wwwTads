@@ -85,11 +85,6 @@ public class Login {
 					break;
 				}
 				
-				
-				
-				
-				
-				
 			}	
 		});
 		

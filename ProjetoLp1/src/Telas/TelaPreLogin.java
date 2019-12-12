@@ -49,6 +49,7 @@ public class TelaPreLogin {
 		btnContaCorrente.addActionListener(new ActionListener() {
 			public void actionPerformed(ActionEvent arg0) {
 				Login.iniciar(1);
+				frame.setVisible(false);
 
 			}
 		});
@@ -59,6 +60,7 @@ public class TelaPreLogin {
 		btnContaPoupana.addActionListener(new ActionListener() {
 			public void actionPerformed(ActionEvent e) {
 				Login.iniciar(2);
+				frame.setVisible(false);
 
 			}
 		});

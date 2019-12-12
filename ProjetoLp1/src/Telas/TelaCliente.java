@@ -5,6 +5,7 @@ import java.awt.EventQueue;
 import java.awt.Toolkit;
 import java.awt.event.ActionEvent;
 import java.awt.event.ActionListener;
+import LP.Conta;
 
 import javax.swing.ImageIcon;
 import javax.swing.JButton;
@@ -14,11 +15,13 @@ import javax.swing.JLabel;
 public class TelaCliente {
 
 	public static JFrame frmTelaCliente;
+	private static Conta continha;
 
 	/**
 	 * Launch the application.
 	 */
-	public static void iniciar() {
+	public static void iniciar(Conta conta) {
+		continha = conta;
 		EventQueue.invokeLater(new Runnable() {
 			public void run() {
 				try {
@@ -56,7 +59,7 @@ public class TelaCliente {
 		JButton btnNewButton = new JButton("Saque");
 		btnNewButton.addActionListener(new ActionListener() {
 			public void actionPerformed(ActionEvent e) {
-				TelaSaque.sacar();
+				TelaSaque.sacar(continha);
 				frmTelaCliente.setVisible(false);
 			}
 		});
@@ -96,11 +99,11 @@ public class TelaCliente {
 		btnNewButton_3.setBounds(215, 142, 107, 23);
 		frmTelaCliente.getContentPane().add(btnNewButton_3);
 
-		JLabel lblNomeCliente = new JLabel("Nome Cliente" + ""); // Falta Adicionar o Nome Do CLiente
+		JLabel lblNomeCliente = new JLabel("Nome Cliente" + continha.getCliente().getNome()); 
 		lblNomeCliente.setBounds(22, 215, 89, 14);
 		frmTelaCliente.getContentPane().add(lblNomeCliente);
 
-		JLabel lblSaldo = new JLabel("Saldo" + ""); // Falta mostrar o saldo Do CLiente
+		JLabel lblSaldo = new JLabel("Saldo: R$" + continha.getSaldo());
 		lblSaldo.setBounds(22, 234, 96, 14);
 		frmTelaCliente.getContentPane().add(lblSaldo);
 
