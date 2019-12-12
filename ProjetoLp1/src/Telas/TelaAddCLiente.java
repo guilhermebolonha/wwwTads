@@ -101,9 +101,9 @@ public class TelaAddCLiente {
 		
 		nome = textField.getText();
 		clientinho.setNome(nome);
-		CPF = textField.getText();
+		CPF = textField_1.getText();
 		clientinho.setCpf(CPF);
-		endereco= textField.getText();
+		endereco= textField_2.getText();
 		clientinho.setEndereco(endereco);
 
 		JButton btnNewButton_1 = new JButton("ok");
