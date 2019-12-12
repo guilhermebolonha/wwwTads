@@ -10,19 +10,24 @@ import javax.swing.ImageIcon;
 import javax.swing.JButton;
 import javax.swing.JFrame;
 import javax.swing.JLabel;
-import javax.swing.JOptionPane;
 import javax.swing.JTextField;
+
+import LP.Conta;
+import LP.Util;
+import LP.UtilBanco;
 
 public class Login {
 
 	public static JFrame frame;
 	private JTextField num_conta;
 	private JTextField num_senha;
+	private static int vldConta;
 
 	/**
 	 * Launch the application.
 	 */
-	public static void iniciar() {
+	public static void iniciar(int vldC) {
+		vldConta = vldC;
 		EventQueue.invokeLater(new Runnable() {
 			public void run() {
 				try {
@@ -60,10 +65,31 @@ public class Login {
 		entrar.setBounds(113, 273, 89, 23);
 		entrar.addActionListener(new ActionListener() {
 			public void actionPerformed(ActionEvent arg0) {
-				TelaCliente telaCliente = new TelaCliente();
-				telaCliente.iniciar();
-				frame.setVisible(false);
-				JOptionPane.showMessageDialog(null, "Login efetuado com sucesso ");
+				
+				switch (vldConta) {
+				case 1:
+					Conta contaAux1 = LP.Util.consultaContaCSW(TelaInicial.agencia, Integer.valueOf(num_conta.getText()));
+					if(contaAux1 != null) {
+						TelaCliente telaCliente = new TelaCliente();
+						telaCliente.iniciar(contaAux1);
+						frame.setVisible(false);
+					}
+					break;
+				case 2:
+					Conta contaAux2 = LP.Util.consultaContaPSW(TelaInicial.agencia, Integer.valueOf(num_conta.getText()));
+					if(contaAux2 != null) {
+						TelaCliente telaCliente = new TelaCliente();
+						telaCliente.iniciar(contaAux2);
+						frame.setVisible(false);
+					}
+					break;
+				}
+				
+				
+				
+				
+				
+				
 			}	
 		});
 		

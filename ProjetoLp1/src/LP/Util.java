@@ -137,6 +137,50 @@ public static ContaPoupanca consultaContaP(Agencia agenciaAux) {
 		}
 
 	}
+
+public static ContaPoupanca consultaContaPSW(Agencia agenciaAux, int codConta1) {
+	
+	/////////////
+	boolean encontrou = false;
+
+	ContaPoupanca contaAux1 = new ContaPoupanca(codConta1);
+	int index1 = agenciaAux.getLstContas().indexOf(contaAux1);
+
+	if (index1 >= 0) {
+		contaAux1 = (ContaPoupanca) agenciaAux.getLstContas().get(index1);
+		encontrou = true;
+	} else {
+		System.out.println("Conta não encontrada.");
+	}
+	if (encontrou) {
+		return contaAux1;
+	} else {
+		return null;
+	}
+
+}
+
+public static ContaCorrente consultaContaCSW(Agencia agenciaAux, int codConta2) {
+	boolean encontrou = false;
+	ContaCorrente contaAux2 = new ContaCorrente(codConta2);
+	int index2 = agenciaAux.getLstContas().indexOf(contaAux2);
+
+	if (index2 >= 0) {
+		contaAux2 = (ContaCorrente) agenciaAux.getLstContas().get(index2);
+
+		encontrou = true;
+
+	} else {
+		System.out.println("Conta não encontrada.");
+	}
+	if (encontrou) {
+		return contaAux2;
+	} else {
+		return null;
+	}
+
+}
+
 public static ContaCorrente consultaContaC(Agencia agenciaAux) {
 	boolean encontrou = false;
 	System.out.println("Digite o codigo da conta que deseja consultar: ");

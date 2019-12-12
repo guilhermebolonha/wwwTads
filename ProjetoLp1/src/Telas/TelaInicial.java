@@ -3,7 +3,6 @@ package Telas;
 import java.awt.Color;
 import java.awt.EventQueue;
 import java.awt.Font;
-import java.awt.Toolkit;
 import java.awt.event.ActionEvent;
 import java.awt.event.ActionListener;
 
@@ -12,8 +11,13 @@ import javax.swing.JButton;
 import javax.swing.JFrame;
 import javax.swing.JLabel;
 import javax.swing.JTextPane;
+import java.awt.Toolkit;
+import LP.Agencia;
 
 public class TelaInicial {
+	
+	
+	public static Agencia agencia = new Agencia("Santa Teresa");
 
 	public static JFrame frame;
 
@@ -96,7 +100,7 @@ public class TelaInicial {
 		JButton btnCliente = new JButton("Cliente");
 		btnCliente.addActionListener(new ActionListener() {
 			public void actionPerformed(ActionEvent e) {
-				Login.iniciar();
+				TelaPreLogin.iniciar();
 				frame.setVisible(false);
 
 			}
