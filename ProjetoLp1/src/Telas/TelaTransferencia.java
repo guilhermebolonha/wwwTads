@@ -10,6 +10,11 @@ import javax.swing.JFrame;
 import javax.swing.JLabel;
 import javax.swing.JTextField;
 import javax.swing.LayoutStyle.ComponentPlacement;
+
+import LP.Conta;
+import LP.Transferencia;
+import LP.Util;
+
 import java.awt.Color;
 import javax.swing.ImageIcon;
 import java.awt.event.ActionListener;
@@ -19,13 +24,15 @@ import java.awt.Toolkit;
 public class TelaTransferencia {
 
 	private JFrame frame;
-	private JTextField textField;
-	private JTextField textField_1;
+	private JTextField codContaDestino;
+	private JTextField valor;
+	private static Conta continha;
 
 	/**
 	 * Launch the application.
 	 */
-	public static void transferir() {
+	public static void transferir(Conta conta) {
+		continha = conta;
 		EventQueue.invokeLater(new Runnable() {
 			public void run() {
 				try {
@@ -59,13 +66,13 @@ public class TelaTransferencia {
 		
 		JLabel lblInsiraAConta = new JLabel("Insira a conta para transfer\u00EAncia");
 		
-		textField = new JTextField();
-		textField.setColumns(10);
+		codContaDestino = new JTextField();
+		codContaDestino.setColumns(10);
 		
 		JLabel lblInsiraOValor = new JLabel("Insira o valor para deposito");
 		
-		textField_1 = new JTextField();
-		textField_1.setColumns(10);
+		valor = new JTextField();
+		valor.setColumns(10);
 		
 		JLabel lblR = new JLabel("R$");
 		lblR.setFont(new Font("Tahoma", Font.PLAIN, 14));
@@ -74,9 +81,27 @@ public class TelaTransferencia {
 		btnNewButton.addActionListener(new ActionListener() {
 			public void actionPerformed(ActionEvent e) {
 				
+				Conta contaAux3;
+				contaAux3 = LP.Util.consultaContaCSW(TelaInicial.agencia, Integer.valueOf(codContaDestino.getText()));
+				if (contaAux3 == null) {					
+					contaAux3 = LP.Util.consultaContaPSW(TelaInicial.agencia, Integer.valueOf(codContaDestino.getText()));
+				}
+
+				if (contaAux3 != null) {
+
+					Transferencia operacao3 = new Transferencia(Integer.valueOf(valor.getText()), continha, contaAux3);
+
+					if (operacao3.efetuar()) {
+						System.out.println("Efetuado com sucesso");
+						
+						frame.setVisible(false);
+						TelaCliente.frmTelaCliente.setVisible(true);
+					} else {
+						System.err.println("Não foi possivel realizar");
+					}
+
+				}
 				// Falta Alterar saldo das Contas.
-				frame.setVisible(false);
-				TelaCliente.frmTelaCliente.setVisible(true);
 				
 			}
 		});
@@ -102,7 +127,7 @@ public class TelaTransferencia {
 							.addContainerGap())
 						.addGroup(groupLayout.createParallelGroup(Alignment.LEADING)
 							.addGroup(groupLayout.createSequentialGroup()
-								.addComponent(textField, GroupLayout.PREFERRED_SIZE, GroupLayout.DEFAULT_SIZE, GroupLayout.PREFERRED_SIZE)
+								.addComponent(codContaDestino, GroupLayout.PREFERRED_SIZE, GroupLayout.DEFAULT_SIZE, GroupLayout.PREFERRED_SIZE)
 								.addContainerGap())
 							.addGroup(groupLayout.createSequentialGroup()
 								.addComponent(lblInsiraAConta, GroupLayout.DEFAULT_SIZE, GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
@@ -111,7 +136,7 @@ public class TelaTransferencia {
 					.addGap(81)
 					.addComponent(lblR)
 					.addPreferredGap(ComponentPlacement.RELATED)
-					.addComponent(textField_1, GroupLayout.PREFERRED_SIZE, GroupLayout.DEFAULT_SIZE, GroupLayout.PREFERRED_SIZE)
+					.addComponent(valor, GroupLayout.PREFERRED_SIZE, GroupLayout.DEFAULT_SIZE, GroupLayout.PREFERRED_SIZE)
 					.addContainerGap(269, Short.MAX_VALUE))
 				.addGroup(groupLayout.createSequentialGroup()
 					.addGap(134)
@@ -126,13 +151,13 @@ public class TelaTransferencia {
 							.addGap(25)
 							.addComponent(lblInsiraAConta)
 							.addGap(11)
-							.addComponent(textField, GroupLayout.PREFERRED_SIZE, GroupLayout.DEFAULT_SIZE, GroupLayout.PREFERRED_SIZE)
+					.addComponent(codContaDestino, GroupLayout.PREFERRED_SIZE, GroupLayout.DEFAULT_SIZE, GroupLayout.PREFERRED_SIZE)
 							.addGap(18)
 							.addComponent(lblInsiraOValor)
 							.addGap(18)
 							.addGroup(groupLayout.createParallelGroup(Alignment.BASELINE)
 								.addComponent(lblR)
-								.addComponent(textField_1, GroupLayout.PREFERRED_SIZE, GroupLayout.DEFAULT_SIZE, GroupLayout.PREFERRED_SIZE))
+						.addComponent(valor, GroupLayout.PREFERRED_SIZE, GroupLayout.DEFAULT_SIZE, GroupLayout.PREFERRED_SIZE))
 							.addGap(49)
 							.addComponent(btnNewButton))
 						.addGroup(groupLayout.createSequentialGroup()

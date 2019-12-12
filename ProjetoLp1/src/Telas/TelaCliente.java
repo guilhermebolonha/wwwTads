@@ -69,7 +69,7 @@ public class TelaCliente {
 		JButton btnNewButton_1 = new JButton("Transferencia");
 		btnNewButton_1.addActionListener(new ActionListener() {
 			public void actionPerformed(ActionEvent e) {
-				TelaTransferencia.transferir();
+				TelaTransferencia.transferir(continha);
 				frmTelaCliente.setVisible(false);
 
 			}
@@ -81,7 +81,7 @@ public class TelaCliente {
 		btnNewButton_2.addActionListener(new ActionListener() {
 
 			public void actionPerformed(ActionEvent e) {
-				TelaDeposito.depositar();
+				TelaDeposito.depositar(continha);
 				frmTelaCliente.setVisible(false);
 			}
 		});
