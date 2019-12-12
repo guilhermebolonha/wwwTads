@@ -74,6 +74,12 @@ public class TelaPreLogin {
 		frame.getContentPane().add(txtpnTipoDeConta);
 		
 		JButton btnVoltar = new JButton("Voltar");
+		btnVoltar.addActionListener(new ActionListener() {
+			public void actionPerformed(ActionEvent e) {
+				frame.setVisible(false);
+				TelaInicial.frame.setVisible(true);
+			}
+		});
 		btnVoltar.setBounds(10, 11, 89, 23);
 		frame.getContentPane().add(btnVoltar);
 	}
