@@ -112,12 +112,7 @@ public class Principal {
 
 				case 3:
 					 
-					 if(HandlerCliente.removeCliente())
-						listaCliente.toString();
 					 
-					 else
-						System.out.println("não removido");
-					break;
 
 				case 4:
 					HandlerCliente.alterarCliente();
@@ -158,10 +153,7 @@ public class Principal {
 					HandlerConta.cadastraConta();
 					break;
 				case 2:
-					if(HandlerConta.removeConta())
-						System.out.println("Conta removida");
-					else
-						System.out.println("Conta não removida");
+					
 
 					break;
 

@@ -21,6 +21,8 @@ public class TelaAddConta {
 	private JTextField textField;
 	private JTextField textField_1;
 	private final ButtonGroup buttonGroup = new ButtonGroup();
+	
+	 
 
 	/**
 	 * Launch the application.
@@ -93,7 +95,7 @@ public class TelaAddConta {
 		textField_1.setColumns(10);
 		
 		JLabel lblNewLabel_1 = new JLabel("");
-		lblNewLabel_1.setIcon(new ImageIcon("C:\\Users\\20181tadst0330\\Desktop\\iconAdd.png"));
+		lblNewLabel_1.setIcon(new ImageIcon(TelaAddConta.class.getResource("/Imagens/iconAdd.png")));
 		lblNewLabel_1.setBounds(162, 25, 75, 75);
 		frmNewConta.getContentPane().add(lblNewLabel_1);
 		
@@ -119,7 +121,7 @@ public class TelaAddConta {
 				
 			}
 		});
-		button.setIcon(new ImageIcon("C:\\Users\\20181tadst0330\\Desktop\\iconVoltar.png"));
+		button.setIcon(new ImageIcon(TelaAddConta.class.getResource("/Imagens/iconVoltar.png")));
 		button.setBounds(26, 11, 45, 23);
 		frmNewConta.getContentPane().add(button);
 	}

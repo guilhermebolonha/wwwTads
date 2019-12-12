@@ -55,7 +55,7 @@ public class TelaListaContas {
 				TelaGerente.frmTelaGerente.setVisible(true);
 			}
 		});
-		button.setIcon(new ImageIcon("C:\\Users\\20181tadst0330\\Documents\\wwwTads-dev\\wwwTads-dev\\ProjetoLp1\\src\\imagens\\iconVoltar.png"));
+		button.setIcon(new ImageIcon(TelaListaContas.class.getResource("/Imagens/iconVoltar.png")));
 		button.setBounds(34, 35, 46, 23);
 		frame.getContentPane().add(button);
 		

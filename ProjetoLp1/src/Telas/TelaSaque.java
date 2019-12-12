@@ -83,7 +83,7 @@ public class TelaSaque {
 				TelaCliente.frmTelaCliente.setVisible(true);
 			}
 		});
-		btnVoltar.setIcon(new ImageIcon("C:\\Users\\20181tadst0330\\Documents\\wwwTads-dev\\wwwTads-dev\\ProjetoLp1\\src\\imagens\\iconVoltar.png"));
+		btnVoltar.setIcon(new ImageIcon(TelaSaque.class.getResource("/Imagens/iconVoltar.png")));
 		btnVoltar.setBounds(26, 11, 37, 23);
 		frmSaque.getContentPane().add(btnVoltar);
 		
@@ -101,7 +101,7 @@ public class TelaSaque {
 		frmSaque.getContentPane().add(lblNewLabel_1);
 		
 		JLabel label = new JLabel("");
-		label.setIcon(new ImageIcon("C:\\Users\\20181tadst0330\\Desktop\\images.png"));
+		label.setIcon(new ImageIcon("C:\\Users\\Hiago Brazzali\\Documents\\wwwTads\\ProjetoLp1\\src\\Imagens\\images.png"));
 		label.setBounds(154, 21, 75, 75);
 		frmSaque.getContentPane().add(label);
 	}

@@ -57,8 +57,7 @@ public class TelaListaClientes {
 				frame.setVisible(false);
 			}
 		});
-		btnNewButton.setIcon(new ImageIcon(
-				"C:\\Users\\20181tadst0330\\Documents\\wwwTads-dev\\wwwTads-dev\\ProjetoLp1\\src\\imagens\\iconVoltar.png"));
+		btnNewButton.setIcon(new ImageIcon(TelaListaClientes.class.getResource("/Imagens/iconVoltar.png")));
 		btnNewButton.setBounds(22, 11, 49, 23);
 		frame.getContentPane().add(btnNewButton);
 

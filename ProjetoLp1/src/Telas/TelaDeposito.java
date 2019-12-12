@@ -76,7 +76,7 @@ public class TelaDeposito {
 		frmDeposito.getContentPane().add(textField);
 		
 		JLabel label = new JLabel("");
-		label.setIcon(new ImageIcon("C:\\Users\\20181tadst0330\\Desktop\\images.png"));
+		label.setIcon(new ImageIcon("C:\\Users\\Hiago Brazzali\\Documents\\wwwTads\\ProjetoLp1\\src\\Imagens\\images.png"));
 		label.setBounds(180, 37, 75, 75);
 		frmDeposito.getContentPane().add(label);
 		
@@ -101,7 +101,7 @@ public class TelaDeposito {
 				frmDeposito.setVisible(false);
 			}
 		});
-		button.setIcon(new ImageIcon("C:\\Users\\20181tadst0330\\Documents\\wwwTads-dev\\wwwTads-dev\\ProjetoLp1\\src\\imagens\\iconVoltar.png"));
+		button.setIcon(new ImageIcon(TelaDeposito.class.getResource("/Imagens/iconVoltar.png")));
 		button.setBounds(10, 11, 45, 23);
 		frmDeposito.getContentPane().add(button);
 	}

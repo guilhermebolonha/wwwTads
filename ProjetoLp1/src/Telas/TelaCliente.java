@@ -108,7 +108,7 @@ public class TelaCliente {
 		frmTelaCliente.getContentPane().add(lblSaldo);
 
 		JLabel label = new JLabel("");
-		label.setIcon(new ImageIcon("C:\\Users\\20181tadst0330\\Desktop\\iconPerson.png"));
+		label.setIcon(new ImageIcon("C:\\Users\\Hiago Brazzali\\Documents\\wwwTads\\ProjetoLp1\\src\\Imagens\\iconPerson.png"));
 		label.setBounds(34, 63, 125, 125);
 		frmTelaCliente.getContentPane().add(label);
 

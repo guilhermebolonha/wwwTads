@@ -108,22 +108,22 @@ public class TelaGerente {
 		frmTelaGerente.getContentPane().add(btnUpdate);
 		
 		JLabel label = new JLabel("");
-		label.setIcon(new ImageIcon("C:\\Users\\20181tadst0330\\Documents\\wwwTads-dev\\wwwTads-dev\\ProjetoLp1\\src\\imagens\\iconAddPerson.png"));
+		label.setIcon(new ImageIcon(TelaGerente.class.getResource("/Imagens/iconAddPerson.png")));
 		label.setBounds(54, 83, 75, 75);
 		frmTelaGerente.getContentPane().add(label);
 		
 		JLabel label_1 = new JLabel("");
-		label_1.setIcon(new ImageIcon("C:\\Users\\20181tadst0330\\Documents\\wwwTads-dev\\wwwTads-dev\\ProjetoLp1\\src\\imagens\\iconAdd.png"));
+		label_1.setIcon(new ImageIcon("C:\\Users\\Hiago Brazzali\\Documents\\wwwTads\\ProjetoLp1\\src\\Imagens\\iconAdd.png"));
 		label_1.setBounds(227, 83, 75, 75);
 		frmTelaGerente.getContentPane().add(label_1);
 		
 		JLabel label_2 = new JLabel("");
-		label_2.setIcon(new ImageIcon("C:\\Users\\20181tadst0330\\Documents\\wwwTads-dev\\wwwTads-dev\\ProjetoLp1\\src\\imagens\\iconRemovePerson.png"));
+		label_2.setIcon(new ImageIcon(TelaGerente.class.getResource("/Imagens/iconRemovePerson.png")));
 		label_2.setBounds(54, 206, 75, 75);
 		frmTelaGerente.getContentPane().add(label_2);
 		
 		JLabel label_3 = new JLabel("");
-		label_3.setIcon(new ImageIcon("C:\\Users\\20181tadst0330\\Documents\\wwwTads-dev\\wwwTads-dev\\ProjetoLp1\\src\\imagens\\iconRemove.png"));
+		label_3.setIcon(new ImageIcon(TelaGerente.class.getResource("/Imagens/iconRemove.png")));
 		label_3.setBounds(227, 206, 75, 75);
 		frmTelaGerente.getContentPane().add(label_3);
 		
@@ -162,12 +162,12 @@ public class TelaGerente {
 		frmTelaGerente.getContentPane().add(btnNewButton_3);
 		
 		JLabel label_4 = new JLabel("");
-		label_4.setIcon(new ImageIcon("C:\\Users\\20181tadst0330\\Documents\\wwwTads-dev\\wwwTads-dev\\ProjetoLp1\\src\\imagens\\iconListarPerson.png"));
+		label_4.setIcon(new ImageIcon(TelaGerente.class.getResource("/Imagens/iconListarPerson.png")));
 		label_4.setBounds(54, 361, 75, 75);
 		frmTelaGerente.getContentPane().add(label_4);
 		
 		JLabel label_5 = new JLabel("");
-		label_5.setIcon(new ImageIcon("C:\\Users\\20181tadst0330\\Documents\\wwwTads-dev\\wwwTads-dev\\ProjetoLp1\\src\\imagens\\iconListarContas.png"));
+		label_5.setIcon(new ImageIcon(TelaGerente.class.getResource("/Imagens/iconListarContas.png")));
 		label_5.setBounds(227, 361, 75, 75);
 		frmTelaGerente.getContentPane().add(label_5);
 		

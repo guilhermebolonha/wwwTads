@@ -57,7 +57,7 @@ public class TelaExtrato {
 				TelaCliente.frmTelaCliente.setVisible(true);
 			}
 		});
-		button.setIcon(new ImageIcon("C:\\Users\\20181tadst0330\\Documents\\wwwTads-dev\\wwwTads-dev\\ProjetoLp1\\src\\imagens\\iconVoltar.png"));
+		button.setIcon(new ImageIcon(TelaExtrato.class.getResource("/Imagens/iconVoltar.png")));
 		button.setBounds(29, 27, 49, 23);
 		frmTelaExtrato.getContentPane().add(button);
 		

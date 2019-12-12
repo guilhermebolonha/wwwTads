@@ -7,6 +7,9 @@ import java.awt.Color;
 import javax.swing.JLabel;
 import javax.swing.ImageIcon;
 import javax.swing.JTextField;
+
+import LP.HandlerConta;
+
 import javax.swing.JButton;
 import java.awt.event.ActionListener;
 import java.awt.event.ActionEvent;
@@ -16,6 +19,8 @@ public class TelaRemoveConta {
 
 	private JFrame frame;
 	private JTextField textField;
+	
+	int numConta;
 
 	/**
 	 * Launch the application.
@@ -52,7 +57,7 @@ public class TelaRemoveConta {
 		frame.getContentPane().setLayout(null);
 		
 		JLabel label = new JLabel("");
-		label.setIcon(new ImageIcon("C:\\Users\\20181tadst0330\\Documents\\wwwTads-dev\\wwwTads-dev\\ProjetoLp1\\src\\imagens\\iconRemove.png"));
+		label.setIcon(new ImageIcon(TelaRemoveConta.class.getResource("/Imagens/iconRemove.png")));
 		label.setBounds(183, 38, 75, 75);
 		frame.getContentPane().add(label);
 		
@@ -70,6 +75,11 @@ public class TelaRemoveConta {
 			public void actionPerformed(ActionEvent e) {
 				//Verificar a conta a remover e removela
 				
+				if(HandlerConta.removeConta())
+					System.out.println("Conta removida");
+				else
+					System.out.println("Conta não removida");
+				
 				frame.setVisible(false);
 				TelaGerente.frmTelaGerente.setVisible(true);
 			}
@@ -84,7 +94,7 @@ public class TelaRemoveConta {
 				TelaGerente.frmTelaGerente.setVisible(true);
 			}
 		});
-		button.setIcon(new ImageIcon("C:\\Users\\20181tadst0330\\Documents\\wwwTads-dev\\wwwTads-dev\\ProjetoLp1\\src\\imagens\\iconVoltar.png"));
+		button.setIcon(new ImageIcon(TelaRemoveConta.class.getResource("/Imagens/iconVoltar.png")));
 		button.setBounds(31, 38, 45, 23);
 		frame.getContentPane().add(button);
 		frame.setBounds(100, 100, 391, 399);

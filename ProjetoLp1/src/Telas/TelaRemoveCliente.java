@@ -1,21 +1,27 @@
 package Telas;
 
-import java.awt.EventQueue;
-
-import javax.swing.JFrame;
-import java.awt.Toolkit;
 import java.awt.Color;
-import javax.swing.JLabel;
-import javax.swing.JTextField;
+import java.awt.EventQueue;
+import java.awt.Toolkit;
+import java.awt.event.ActionEvent;
+import java.awt.event.ActionListener;
+import java.security.Principal;
+
 import javax.swing.ImageIcon;
 import javax.swing.JButton;
-import java.awt.event.ActionListener;
-import java.awt.event.ActionEvent;
+import javax.swing.JFrame;
+import javax.swing.JLabel;
+import javax.swing.JOptionPane;
+import javax.swing.JTextField;
+
+import LP.HandlerCliente;
 
 public class TelaRemoveCliente {
 
 	private JFrame frmRemoveCliente;
 	private JTextField textField;
+	
+	String CPF;
 
 	/**
 	 * Launch the application.
@@ -79,12 +85,19 @@ public class TelaRemoveCliente {
 		JButton button = new JButton("");
 		button.addActionListener(new ActionListener() {
 			public void actionPerformed(ActionEvent e) {
+				CPF = textField.getText();
+				
+				if(HandlerCliente.removeCliente(CPF))
+					JOptionPane.showInternalInputDialog(null, "Removido com sucesso");
+				 
+				 else
+					System.out.println("não removido");
+				
 				frmRemoveCliente.setVisible(false);
 				TelaGerente.frmTelaGerente.setVisible(true);
 			}
 		});
-		button.setIcon(new ImageIcon(
-				"C:\\Users\\20181tadst0330\\Documents\\wwwTads-dev\\wwwTads-dev\\ProjetoLp1\\src\\imagens\\iconVoltar.png"));
+		button.setIcon(new ImageIcon(TelaRemoveCliente.class.getResource("/Imagens/iconVoltar.png")));
 		button.setBounds(24, 11, 47, 23);
 		frmRemoveCliente.getContentPane().add(button);
 		frmRemoveCliente

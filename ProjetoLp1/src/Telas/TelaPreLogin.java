@@ -8,6 +8,7 @@ import javax.swing.JTextPane;
 import java.awt.Color;
 import java.awt.event.ActionListener;
 import java.awt.event.ActionEvent;
+import javax.swing.ImageIcon;
 
 public class TelaPreLogin {
 
@@ -73,14 +74,15 @@ public class TelaPreLogin {
 		txtpnTipoDeConta.setBounds(171, 97, 84, 20);
 		frame.getContentPane().add(txtpnTipoDeConta);
 		
-		JButton btnVoltar = new JButton("Voltar");
+		JButton btnVoltar = new JButton("");
+		btnVoltar.setIcon(new ImageIcon(TelaPreLogin.class.getResource("/Imagens/iconVoltar.png")));
 		btnVoltar.addActionListener(new ActionListener() {
 			public void actionPerformed(ActionEvent e) {
 				frame.setVisible(false);
 				TelaInicial.frame.setVisible(true);
 			}
 		});
-		btnVoltar.setBounds(10, 11, 89, 23);
+		btnVoltar.setBounds(10, 11, 35, 23);
 		frame.getContentPane().add(btnVoltar);
 	}
 }

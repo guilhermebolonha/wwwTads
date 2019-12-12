@@ -88,7 +88,7 @@ public class TelaEsqueceuSenha {
 		frame.getContentPane().add(textField_1);
 
 		JLabel label = new JLabel("");
-		label.setIcon(new ImageIcon("C:\\Users\\20181tadst0330\\Desktop\\iconPerson.png"));
+		label.setIcon(new ImageIcon(TelaEsqueceuSenha.class.getResource("/Imagens/iconPerson.png")));
 		label.setBounds(147, 26, 125, 125);
 		frame.getContentPane().add(label);
 
