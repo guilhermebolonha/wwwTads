@@ -9,10 +9,8 @@ import java.util.Iterator;
 public class HandlerAgencia {
 	static Scanner entrada = new Scanner(System.in);
 
-	public static void cadastrarAgencia() {
+	public static void cadastrarAgencia(String nome) {
 
-		System.out.println("Digite o nome da agência: ");
-		String nome = Util.leString(entrada);
 
 		Agencia agencia = new Agencia(nome);
 		Principal.listaAgencia.add(agencia);
@@ -38,10 +36,8 @@ public class HandlerAgencia {
 
 	}
 
-	public static Agencia consultarAgencia() {
-		// ta ok
-		System.out.println("\nDigite o codigo da agência: ");
-		int codAgencia = Util.leInt(entrada);
+	public static Agencia consultarAgencia(int codAgencia) {
+
 		Agencia agenciaAux = new Agencia(codAgencia);
 
 		int index = Principal.listaAgencia.indexOf(agenciaAux);
@@ -55,10 +51,10 @@ public class HandlerAgencia {
 		}
 	}
 
-	public static boolean removeAgencia() {
+	public static boolean removeAgencia(int codAgencia) {
 
 		// ta ok
-		Agencia agencia = consultarAgencia();
+		Agencia agencia = consultarAgencia(codAgencia);
 
 		if (agencia != null) {
 			Principal.listaAgencia.remove(agencia);
@@ -69,9 +65,9 @@ public class HandlerAgencia {
 
 	}
 
-	public static void alterarAgencia() {
-		// ta ok
-		Agencia agencia = consultarAgencia();
+	public static void alterarAgencia(int codAgencia) {
+		
+		Agencia agencia = consultarAgencia(codAgencia);
 
 		if (agencia != null) {
 
@@ -86,9 +82,9 @@ public class HandlerAgencia {
 					op = Util.leInt(entrada);
 					switch (op) {
 					case 1:
-						System.out.println("Digite novo nome da agência: ");
-						String nome = entrada.nextLine();
-						agencia.setNome(nome);
+						// precisa colocar o que vem da tela direto aqui
+						//agencia.setNome();
+						//MUITA ATENÇÃO AQUI.
 						System.out.println("\nNome alterado: " + agencia.toString());
 						break;
 
@@ -107,7 +103,7 @@ public class HandlerAgencia {
 			}
 
 		} else {
-			System.out.println("Agencia não encontrado!");
+			
 
 		}
 	}
