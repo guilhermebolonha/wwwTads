@@ -14,6 +14,7 @@ import java.awt.Toolkit;
 import java.awt.event.ActionListener;
 import java.awt.event.ActionEvent;
 import LP.Conta;
+import LP.Saque;
 
 public class TelaSaque {
 
@@ -64,11 +65,19 @@ public class TelaSaque {
 		btnSacar.addActionListener(new ActionListener() {
 			public void actionPerformed(ActionEvent e) {
 				
+				Saque operacao = new Saque(continha, Integer.valueOf(textSaque.getText()));
+
+				if (operacao.efetuar()) {
+
+					System.out.println("Efetuado com sucesso");
+					frmSaque.setVisible(false);
+					TelaCliente.frmTelaCliente.setVisible(true);
+
+				}else {
+					System.err.println("Não foi possivel realizar");
+				}
 				
 				
-				
-				frmSaque.setVisible(false);
-				TelaCliente.frmTelaCliente.setVisible(true);
 			}
 		});
 		btnSacar.setBounds(90, 187, 89, 23);

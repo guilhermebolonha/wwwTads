@@ -13,15 +13,20 @@ import javax.swing.JFrame;
 import javax.swing.JLabel;
 import javax.swing.JTextField;
 
+import LP.Conta;
+import LP.Depositar;
+
 public class TelaDeposito {
 
 	private JFrame frmDeposito;
-	private JTextField textField;
+	private JTextField valor;
+	private static Conta continha;
 
 	/**
 	 * Launch the application.
 	 */
-	public static void depositar() {
+	public static void depositar(Conta conta) {
+		continha = conta;
 		EventQueue.invokeLater(new Runnable() {
 			public void run() {
 				try {
@@ -56,9 +61,9 @@ public class TelaDeposito {
 		frmDeposito.setBounds(100, 100, 325, 313);
 		frmDeposito.setDefaultCloseOperation(JFrame.EXIT_ON_CLOSE);
 		
-		textField = new JTextField();
-		textField.setBounds(63, 175, 175, 20);
-		textField.setColumns(10);
+		valor = new JTextField();
+		valor.setBounds(63, 175, 175, 20);
+		valor.setColumns(10);
 		
 		JLabel lblR = new JLabel("R$");
 		lblR.setBounds(25, 175, 16, 18);
@@ -68,12 +73,12 @@ public class TelaDeposito {
 		lblQualOValor.setBounds(25, 128, 99, 14);
 		frmDeposito.getContentPane().setLayout(null);
 		
-		JLabel lblSaldo = new JLabel("Saldo Atual" + "" ); // Adicionar Saldo Atual do Cliente
+		JLabel lblSaldo = new JLabel("Saldo Atual " + continha.getSaldo());
 		lblSaldo.setBounds(25, 54, 120, 33);
 		frmDeposito.getContentPane().add(lblSaldo);
 		frmDeposito.getContentPane().add(lblQualOValor);
 		frmDeposito.getContentPane().add(lblR);
-		frmDeposito.getContentPane().add(textField);
+		frmDeposito.getContentPane().add(valor);
 		
 		JLabel label = new JLabel("");
 		label.setIcon(new ImageIcon("C:\\Users\\20181tadst0330\\Desktop\\images.png"));
@@ -84,11 +89,17 @@ public class TelaDeposito {
 		btnOk.addActionListener(new ActionListener() {
 			public void actionPerformed(ActionEvent e) {
 				
-				// Falta Alterear o saldo da conta 
+				Depositar operacao2 = new Depositar(continha, Integer.valueOf(valor.getText()));
+
+				if (operacao2.efetuar()) {
+					System.out.println("Efetuado com sucesso");
+					TelaCliente.frmTelaCliente.setVisible(true);
+					frmDeposito.setVisible(false);
+				} else {
+					System.err.println("Não foi possivel realizar");
+				}
 				
 				
-				TelaCliente.frmTelaCliente.setVisible(true);
-				frmDeposito.setVisible(false);
 			}
 		});
 		btnOk.setBounds(102, 227, 89, 23);
