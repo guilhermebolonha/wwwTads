@@ -68,16 +68,14 @@ public class Login {
 				case 1:
 					Conta contaAux1 = LP.Util.consultaContaCSW(TelaInicial.agencia, Integer.valueOf(num_conta.getText()));
 					if(contaAux1 != null) {
-						TelaCliente telaCliente = new TelaCliente();
-						telaCliente.iniciar(contaAux1);
+						TelaCliente.iniciar(contaAux1);
 						frame.setVisible(false);
 					}
 					break;
 				case 2:
 					Conta contaAux2 = LP.Util.consultaContaPSW(TelaInicial.agencia, Integer.valueOf(num_conta.getText()));
 					if(contaAux2 != null) {
-						TelaCliente telaCliente = new TelaCliente();
-						telaCliente.iniciar(contaAux2);
+						TelaCliente.iniciar(contaAux2);
 						frame.setVisible(false);
 					}
 					break;

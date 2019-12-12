@@ -7,20 +7,16 @@ import LP.Util;
 public class HandlerContaCorrente extends HandlerConta {
 	static Scanner entrada = new Scanner(System.in);
 
-	public static void criarContaCorrente() {
+	public static void criarContaCorrente(String cpf, double saldo) {
 
 		if (!Principal.listaCliente.isEmpty()) {
 
-			Cliente cliente = HandlerCliente.consultarCliente();
+			Cliente cliente = HandlerCliente.consultarCliente(cpf);
 			Agencia agencia = HandlerAgencia.consultarAgencia();
 
 			if (cliente != null && agencia != null) {
-				System.out.println("Informe o limite do cliente");
-				double limite = Util.leDouble(entrada);
-				System.out.println("Informe o saldo do cliente");
-				double saldo = Util.leDouble(entrada);
 
-				ContaCorrente contaAux = new ContaCorrente(saldo, limite, cliente);
+				ContaCorrente contaAux = new ContaCorrente(saldo, 1, cliente);
 
 				agencia.inserirConta(contaAux);
 				System.out.println("Conta Criada\n");

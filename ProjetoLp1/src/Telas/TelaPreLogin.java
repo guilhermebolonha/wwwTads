@@ -71,7 +71,7 @@ public class TelaPreLogin {
 		JTextPane txtpnTipoDeConta = new JTextPane();
 		txtpnTipoDeConta.setBackground(Color.LIGHT_GRAY);
 		txtpnTipoDeConta.setText("Tipo de Conta:");
-		txtpnTipoDeConta.setBounds(171, 97, 84, 20);
+		txtpnTipoDeConta.setBounds(171, 97, 98, 20);
 		frame.getContentPane().add(txtpnTipoDeConta);
 		
 		JButton btnVoltar = new JButton("");

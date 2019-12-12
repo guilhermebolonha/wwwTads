@@ -5,18 +5,13 @@ import java.util.Scanner;
 public class HandlerContaPoupanca extends HandlerConta {
 	static Scanner entrada = new Scanner(System.in);
 
-	public static void criarContaPoupanca() {
+	public static void criarContaPoupanca(double saldo, double rendimento, String cpf) {
 		if (!Principal.listaCliente.isEmpty()) {
 
-			Cliente cliente = HandlerCliente.consultarCliente();
+			Cliente cliente = HandlerCliente.consultarCliente(cpf);
 			Agencia agencia = HandlerAgencia.consultarAgencia();
 
 			if (cliente != null && agencia != null) {
-
-				System.out.println("Informe o saldo da conta");
-				double saldo = Util.leDouble(entrada);
-				System.out.println("Informe o rendimento da conta");
-				double rendimento = Util.leDouble(entrada);
 
 				ContaPoupanca contaAux = new ContaPoupanca(saldo, rendimento, cliente);
 

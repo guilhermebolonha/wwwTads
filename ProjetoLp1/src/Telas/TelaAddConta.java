@@ -4,6 +4,16 @@ import java.awt.EventQueue;
 
 import javax.swing.JFrame;
 import javax.swing.JTextField;
+
+import LP.Agencia;
+import LP.Cliente;
+import LP.ContaCorrente;
+import LP.ContaPoupanca;
+import LP.HandlerAgencia;
+import LP.HandlerCliente;
+import LP.Principal;
+import LP.Util;
+
 import javax.swing.JLabel;
 import javax.swing.JRadioButton;
 import java.awt.Font;
@@ -18,8 +28,8 @@ import java.awt.Toolkit;
 public class TelaAddConta {
 
 	private JFrame frmNewConta;
-	private JTextField textField;
-	private JTextField textField_1;
+	private JTextField saldoIni;
+	private JTextField cpf;
 	private final ButtonGroup buttonGroup = new ButtonGroup();
 	
 	 
@@ -61,10 +71,10 @@ public class TelaAddConta {
 		frmNewConta.setDefaultCloseOperation(JFrame.EXIT_ON_CLOSE);
 		frmNewConta.getContentPane().setLayout(null);
 		
-		textField = new JTextField();
-		textField.setBounds(118, 189, 86, 20);
-		frmNewConta.getContentPane().add(textField);
-		textField.setColumns(10);
+		saldoIni = new JTextField();
+		saldoIni.setBounds(118, 189, 86, 20);
+		frmNewConta.getContentPane().add(saldoIni);
+		saldoIni.setColumns(10);
 		
 		JLabel lblSaldoInicial = new JLabel("Saldo Inicial");
 		lblSaldoInicial.setBounds(37, 189, 78, 20);
@@ -89,10 +99,10 @@ public class TelaAddConta {
 		lblCpfDoCliente.setBounds(36, 147, 91, 27);
 		frmNewConta.getContentPane().add(lblCpfDoCliente);
 		
-		textField_1 = new JTextField();
-		textField_1.setBounds(118, 150, 109, 20);
-		frmNewConta.getContentPane().add(textField_1);
-		textField_1.setColumns(10);
+		cpf = new JTextField();
+		cpf.setBounds(118, 150, 109, 20);
+		frmNewConta.getContentPane().add(cpf);
+		cpf.setColumns(10);
 		
 		JLabel lblNewLabel_1 = new JLabel("");
 		lblNewLabel_1.setIcon(new ImageIcon(TelaAddConta.class.getResource("/Imagens/iconAdd.png")));
@@ -104,8 +114,49 @@ public class TelaAddConta {
 			public void actionPerformed(ActionEvent e) {
 				//Verificar e salvar a nova Conta 
 				
-				TelaGerente.frmTelaGerente.setVisible(true);
-				frmNewConta.setVisible(false);
+				if(rdbtnContaPoupana.isSelected()) {
+					if (!Principal.listaCliente.isEmpty()) {
+
+						Cliente cliente = HandlerCliente.consultarCliente(cpf.getText());
+						Agencia agencia = TelaInicial.agencia;
+
+						if (cliente != null && agencia != null) {
+
+							ContaPoupanca contaAux = new ContaPoupanca(Double.valueOf(saldoIni.getText()), 1, cliente);
+
+							agencia.inserirConta(contaAux);
+
+							System.out.println(agencia.lstContas.toString());
+							
+							TelaGerente.frmTelaGerente.setVisible(true);
+							frmNewConta.setVisible(false);
+						}
+					}
+				}else if(rdbtnContaCorrente.isSelected()) {
+					
+					if (!Principal.listaCliente.isEmpty()) {
+
+						Cliente cliente = HandlerCliente.consultarCliente(cpf.getText());
+						Agencia agencia = TelaInicial.agencia;
+
+						if (cliente != null && agencia != null) {
+
+							ContaCorrente contaAux = new ContaCorrente(Double.valueOf(saldoIni.getText()), 150, cliente);
+
+							agencia.inserirConta(contaAux);
+							System.out.println("Conta Criada\n");
+							
+							TelaGerente.frmTelaGerente.setVisible(true);
+							frmNewConta.setVisible(false);
+
+						}
+					}
+
+					
+				}
+				
+				
+				
 				
 			}
 		});

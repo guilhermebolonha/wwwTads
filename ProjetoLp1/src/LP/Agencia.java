@@ -7,7 +7,7 @@ public class Agencia implements Serializable{
 
 	protected static int contador = 0;
 	protected String nome;
-	protected ArrayList<Conta> lstContas;
+	public ArrayList<Conta> lstContas;
 	protected int codAgencia;
 
 	public Agencia(int cod) {

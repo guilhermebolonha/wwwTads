@@ -11,7 +11,7 @@ import java.util.Scanner;
 public class Principal {
 
 	static Scanner entrada = new Scanner(System.in);
-	static ArrayList<Cliente> listaCliente = new ArrayList<Cliente>();
+	public static ArrayList<Cliente> listaCliente = new ArrayList<Cliente>();
 	static ArrayList<Agencia> listaAgencia = new ArrayList<Agencia>();
 	static ArrayList<Gerente> listaGerente = new ArrayList<Gerente>();
 	static ArrayList<Funcionario> listaFuncionario = new ArrayList<Funcionario>();

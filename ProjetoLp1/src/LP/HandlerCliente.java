@@ -71,7 +71,7 @@ public class HandlerCliente {
 		iterador = Principal.listaCliente.iterator(); // para o iterador retornar para o início da lista
 		
 		while (iterador.hasNext() && !encontrado) {
-			clienteAux = iterador.next(); // sem casting
+			//clienteAux = iterador.next(); // sem casting
 			encontrado = clienteAux.getCpf().equals(cpf);
 		}
 

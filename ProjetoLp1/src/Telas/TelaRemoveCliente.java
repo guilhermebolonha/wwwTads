@@ -20,7 +20,7 @@ public class TelaRemoveCliente {
 
 	private JFrame frmRemoveCliente;
 	private JTextField textField;
-	
+
 	String CPF;
 
 	/**
@@ -73,7 +73,15 @@ public class TelaRemoveCliente {
 		JButton btnK = new JButton("ok");
 		btnK.addActionListener(new ActionListener() {
 			public void actionPerformed(ActionEvent e) {
-				// Verificar o cliente a remover e removelo
+				CPF = textField.getText();
+
+				if (HandlerCliente.removeCliente(CPF))
+					//JOptionPane.showInternalInputDialog(null, "Removido com sucesso");
+					System.out.println("Removido com sucesso");
+
+				else
+					System.out.println("Não removido");
+					//JOptionPane.showInternalInputDialog(null,"não removido");
 
 				frmRemoveCliente.setVisible(false);
 				TelaGerente.frmTelaGerente.setVisible(true);
@@ -85,14 +93,7 @@ public class TelaRemoveCliente {
 		JButton button = new JButton("");
 		button.addActionListener(new ActionListener() {
 			public void actionPerformed(ActionEvent e) {
-				CPF = textField.getText();
-				
-				if(HandlerCliente.removeCliente(CPF))
-					JOptionPane.showInternalInputDialog(null, "Removido com sucesso");
-				 
-				 else
-					System.out.println("não removido");
-				
+
 				frmRemoveCliente.setVisible(false);
 				TelaGerente.frmTelaGerente.setVisible(true);
 			}
