@@ -16,8 +16,9 @@ public class Gerente extends Pessoa implements Serializable { // especialização 
 
 	}
 
-	public Gerente(String cpf) {
+	public Gerente(String cpf, Agencia agencia) {
 		super(cpf);
+		this.agencia = agencia;
 	}
 
 	public Gerente(String nome, String cpf, String endereco) {

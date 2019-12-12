@@ -6,12 +6,16 @@ import javax.swing.JFrame;
 import javax.swing.JButton;
 import javax.swing.ImageIcon;
 import javax.swing.JList;
+
+import LP.Principal;
+
 import java.awt.event.ActionListener;
 import java.awt.event.ActionEvent;
 import java.awt.Toolkit;
+import javax.swing.AbstractListModel;
 
 public class TelaListaClientes {
-
+	
 	private JFrame frame;
 
 	/**
@@ -61,7 +65,20 @@ public class TelaListaClientes {
 		btnNewButton.setBounds(22, 11, 49, 23);
 		frame.getContentPane().add(btnNewButton);
 
-		JList list = new JList();
+		JList<Object> list = new JList<Object>();
+		list.setModel(new AbstractListModel<Object>() {
+			/**
+			 * 
+			 */
+			private static final long serialVersionUID = 1L;
+			String[] values = new String[] {Principal.listaCliente.toString()};
+			public int getSize() {
+				return values.length;
+			}
+			public Object getElementAt(int index) {
+				return values[index];
+			}
+		});
 		list.setBounds(70, 73, 277, 178);
 		frame.getContentPane().add(list);
 

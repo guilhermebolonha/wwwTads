@@ -5,7 +5,7 @@ import java.io.Serializable;
 public class Cliente extends Pessoa implements Serializable {
 	protected static int contador = 0;
 	protected int codCliente;
-	
+
 	public static int getContador() {
 		return contador;
 	}
@@ -18,7 +18,7 @@ public class Cliente extends Pessoa implements Serializable {
 		this.codCliente = ++contador;
 
 	}
-	
+
 	public Cliente(String cpf) {
 		super(cpf);
 	}
@@ -28,10 +28,9 @@ public class Cliente extends Pessoa implements Serializable {
 		this.codCliente = ++contador;
 	}
 
-
 	@Override
 	public String toString() {
-		return "Cliente [codCliente=" + codCliente + "]";
+		return "Cliente [codCliente=" + codCliente + ", nome=" + nome + ", cpf=" + cpf + ", endereco=" + endereco + "]";
 	}
 
 	@Override

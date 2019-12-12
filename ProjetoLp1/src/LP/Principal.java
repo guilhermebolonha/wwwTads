@@ -12,14 +12,14 @@ public class Principal {
 
 	static Scanner entrada = new Scanner(System.in);
 	public static ArrayList<Cliente> listaCliente = new ArrayList<Cliente>();
-	static ArrayList<Agencia> listaAgencia = new ArrayList<Agencia>();
-	static ArrayList<Gerente> listaGerente = new ArrayList<Gerente>();
-	static ArrayList<Funcionario> listaFuncionario = new ArrayList<Funcionario>();
+	public static ArrayList<Agencia> listaAgencia = new ArrayList<Agencia>();
+	public static ArrayList<Gerente> listaGerente = new ArrayList<Gerente>();
+	public static ArrayList<Funcionario> listaFuncionario = new ArrayList<Funcionario>();
 	
-
+	/*
 	public static void main(String[] args) {
 		
-		/*
+	
 		Agencia agencia = new Agencia("teste1");
 		Agencia agencia2 = new Agencia("teste2");
 		Cliente cliente = new Cliente("Niclas", "123", "Serra");
@@ -36,7 +36,7 @@ public class Principal {
 		listaGerente.add(gerente);
 		*/
 		
-		String menuPrincipal = "1 - Acessar menu cliente\n" + "2 - Acessar menu conta\n" + "3 - Acessar menu agencia\n"
+	/*	String menuPrincipal = "1 - Acessar menu cliente\n" + "2 - Acessar menu conta\n" + "3 - Acessar menu agencia\n"
 				+ "4 - Acessar menu gerente\n"+ "5 - Acessar menu funcionario\n" + "6 - Acessar menu dados\n";
 
 		boolean sair = false;
@@ -408,5 +408,6 @@ public class Principal {
 		}
 
 	}
+	 */
 
 }

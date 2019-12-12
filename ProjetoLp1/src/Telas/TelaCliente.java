@@ -5,12 +5,15 @@ import java.awt.EventQueue;
 import java.awt.Toolkit;
 import java.awt.event.ActionEvent;
 import java.awt.event.ActionListener;
-import LP.Conta;
 
 import javax.swing.ImageIcon;
 import javax.swing.JButton;
 import javax.swing.JFrame;
 import javax.swing.JLabel;
+
+import LP.Conta;
+import LP.HandlerArquivo;
+import LP.Principal;
 
 public class TelaCliente {
 
@@ -91,7 +94,7 @@ public class TelaCliente {
 		JButton btnNewButton_3 = new JButton("Extrato");
 		btnNewButton_3.addActionListener(new ActionListener() {
 			public void actionPerformed(ActionEvent e) {
-				TelaExtrato.extrato();
+				TelaExtrato.extrato(continha);
 				frmTelaCliente.setVisible(false);
 
 			}
@@ -115,7 +118,13 @@ public class TelaCliente {
 		JButton btnSairDaConta = new JButton("Sair da Conta");
 		btnSairDaConta.addActionListener(new ActionListener() {
 			public void actionPerformed(ActionEvent e) {
-				frmTelaCliente.dispose();
+				
+				HandlerArquivo.gravaObj(TelaInicial.agencia.lstContas, "agencia");
+				HandlerArquivo.gravaObj(Principal.listaGerente, "gerente");
+				HandlerArquivo.gravaObj(Principal.listaCliente, "cliente");
+				HandlerArquivo.gravaObj(Principal.listaFuncionario, "funcionario");
+				
+				frmTelaCliente.setVisible(false);
 				Login.frame.setVisible(true);
 			}
 		});

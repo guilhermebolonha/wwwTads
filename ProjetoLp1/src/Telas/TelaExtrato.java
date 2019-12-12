@@ -11,14 +11,20 @@ import javax.swing.JButton;
 import javax.swing.JFrame;
 import javax.swing.JList;
 
+import LP.Conta;
+
+import javax.swing.AbstractListModel;
+
 public class TelaExtrato {
 
 	public JFrame frmTelaExtrato;
+	private static Conta continha;
 
 	/**
 	 * Launch the application.
 	 */
-	public static void extrato() {
+	public static void extrato(Conta conta) {
+		continha = conta;
 		EventQueue.invokeLater(new Runnable() {
 			public void run() {
 				try {
@@ -62,6 +68,15 @@ public class TelaExtrato {
 		frmTelaExtrato.getContentPane().add(button);
 		
 		JList list = new JList();
+		list.setModel(new AbstractListModel() {
+			String[] values = new String[] {continha.extrato()};
+			public int getSize() {
+				return values.length;
+			}
+			public Object getElementAt(int index) {
+				return values[index];
+			}
+		});
 		
 		//Falta Instanciar A Lista COm o Extrato Do Cliente
 		

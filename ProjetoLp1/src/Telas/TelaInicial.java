@@ -3,6 +3,7 @@ package Telas;
 import java.awt.Color;
 import java.awt.EventQueue;
 import java.awt.Font;
+import java.awt.Toolkit;
 import java.awt.event.ActionEvent;
 import java.awt.event.ActionListener;
 
@@ -11,13 +12,17 @@ import javax.swing.JButton;
 import javax.swing.JFrame;
 import javax.swing.JLabel;
 import javax.swing.JTextPane;
-import java.awt.Toolkit;
+
 import LP.Agencia;
+import LP.Gerente;
+import LP.HandlerArquivo;
+import LP.Principal;
 
 public class TelaInicial {
-	
+
 	
 	public static Agencia agencia = new Agencia("Santa Teresa");
+	public static Gerente gerente = new Gerente("1234", agencia);
 
 	public static JFrame frame;
 
@@ -43,6 +48,13 @@ public class TelaInicial {
 	 * Create the application.
 	 */
 	public TelaInicial() {
+		
+		
+//		listaAgencia = HandlerArquivo.lerObj("agencia");
+//		listaGerente = HandlerArquivo.lerObj("gerente");
+//		listaCliente = HandlerArquivo.lerObj("cliente");
+//		listaFuncionario = HandlerArquivo.lerObj("funcionario");
+		
 		initialize();
 	}
 

@@ -21,6 +21,7 @@ public abstract class Conta implements Serializable {
 		this.saldo = saldo;
 		this.codigoConta = ++contador;
 		this.cliente = cliente;
+		this.lstOperacoes = new ArrayList<Operacao>();
 	}
 
 	public double getSaldo() {

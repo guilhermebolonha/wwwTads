@@ -11,6 +11,10 @@ import javax.swing.JButton;
 import javax.swing.JFrame;
 import javax.swing.JList;
 
+import LP.Principal;
+
+import javax.swing.AbstractListModel;
+
 public class TelaListaContas {
 
 	private JFrame frame;
@@ -47,7 +51,7 @@ public class TelaListaContas {
 		frame.setIconImage(Toolkit.getDefaultToolkit().getImage("C:\\Users\\20181tadst0330\\Desktop\\iconBank.png"));
 		frame.getContentPane().setBackground(Color.WHITE);
 		frame.getContentPane().setLayout(null);
-		
+
 		JButton button = new JButton("");
 		button.addActionListener(new ActionListener() {
 			public void actionPerformed(ActionEvent e) {
@@ -58,16 +62,25 @@ public class TelaListaContas {
 		button.setIcon(new ImageIcon(TelaListaContas.class.getResource("/Imagens/iconVoltar.png")));
 		button.setBounds(34, 35, 46, 23);
 		frame.getContentPane().add(button);
-		
+
 		JList list = new JList();
+		list.setModel(new AbstractListModel() {
+			String[] values = new String[] {TelaInicial.agencia.lstContas.toString()a};
+			public int getSize() {
+				return values.length;
+			}
+			public Object getElementAt(int index) {
+				return values[index];
+			}
+		});
 		list.setBounds(75, 111, 255, 359);
 		frame.getContentPane().add(list);
 		// Listar  as contas da agencia
-		
-		
+
+
 		frame.setBounds(100, 100, 450, 591);
-		
-		
+
+
 		frame.setDefaultCloseOperation(JFrame.EXIT_ON_CLOSE);
 	}
 }

@@ -11,6 +11,9 @@ import javax.swing.JButton;
 import javax.swing.JFrame;
 import javax.swing.JLabel;
 
+import LP.HandlerArquivo;
+import LP.Principal;
+
 public class TelaGerente {
 
 	public static JFrame frmTelaGerente;
@@ -96,17 +99,6 @@ public class TelaGerente {
 		btnNewButton.setBounds(217, 292, 105, 23);
 		frmTelaGerente.getContentPane().add(btnNewButton);
 		
-		JButton btnUpdate = new JButton("Carregar Dados");
-		btnUpdate.addActionListener(new ActionListener() {
-			public void actionPerformed(ActionEvent e) {
-				
-				//Carregar os DAdos 
-				
-			}
-		});
-		btnUpdate.setBounds(112, 563, 131, 23);
-		frmTelaGerente.getContentPane().add(btnUpdate);
-		
 		JLabel label = new JLabel("");
 		label.setIcon(new ImageIcon(TelaGerente.class.getResource("/Imagens/iconAddPerson.png")));
 		label.setBounds(54, 83, 75, 75);
@@ -130,6 +122,12 @@ public class TelaGerente {
 		JButton btnNewButton_1 = new JButton("");
 		btnNewButton_1.addActionListener(new ActionListener() {
 			public void actionPerformed(ActionEvent e) {
+				
+				HandlerArquivo.gravaObj(TelaInicial.agencia.lstContas, "agencia");
+				HandlerArquivo.gravaObj(Principal.listaGerente, "gerente");
+				HandlerArquivo.gravaObj(Principal.listaCliente, "cliente");
+				HandlerArquivo.gravaObj(Principal.listaFuncionario, "funcionario");
+				
 				frmTelaGerente.setVisible(false);
 				TelaInicial.frame.setVisible(true);
 			}
@@ -170,16 +168,6 @@ public class TelaGerente {
 		label_5.setIcon(new ImageIcon(TelaGerente.class.getResource("/Imagens/iconListarContas.png")));
 		label_5.setBounds(227, 361, 75, 75);
 		frmTelaGerente.getContentPane().add(label_5);
-		
-		JButton btnSalvarDados = new JButton("Salvar Dados");
-		btnSalvarDados.addActionListener(new ActionListener() {
-			public void actionPerformed(ActionEvent e) {
-				
-				//Salvar os Dados
-			}
-		});
-		btnSalvarDados.setBounds(112, 529, 131, 23);
-		frmTelaGerente.getContentPane().add(btnSalvarDados);
 	}
 
 }
