@@ -31,6 +31,7 @@ public class TelaTransferencia {
 				try {
 					TelaTransferencia window = new TelaTransferencia();
 					window.frame.setVisible(true);
+					window.frame.setLocationRelativeTo(null);
 				} catch (Exception e) {
 					e.printStackTrace();
 				}

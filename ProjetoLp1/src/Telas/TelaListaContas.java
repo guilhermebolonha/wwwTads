@@ -24,6 +24,7 @@ public class TelaListaContas {
 				try {
 					TelaListaContas window = new TelaListaContas();
 					window.frame.setVisible(true);
+					window.frame.setLocationRelativeTo(null);
 				} catch (Exception e) {
 					e.printStackTrace();
 				}

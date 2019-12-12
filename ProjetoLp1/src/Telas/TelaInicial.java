@@ -3,6 +3,7 @@ package Telas;
 import java.awt.Color;
 import java.awt.EventQueue;
 import java.awt.Font;
+import java.awt.Toolkit;
 import java.awt.event.ActionEvent;
 import java.awt.event.ActionListener;
 
@@ -11,7 +12,6 @@ import javax.swing.JButton;
 import javax.swing.JFrame;
 import javax.swing.JLabel;
 import javax.swing.JTextPane;
-import java.awt.Toolkit;
 
 public class TelaInicial {
 
@@ -26,6 +26,8 @@ public class TelaInicial {
 				try {
 					TelaInicial window = new TelaInicial();
 					window.frame.setVisible(true);
+					frame.setLocationRelativeTo(null);
+					
 				} catch (Exception e) {
 					e.printStackTrace();
 				}

@@ -23,6 +23,7 @@ public class TelaListaClientes {
 				try {
 					TelaListaClientes window = new TelaListaClientes();
 					window.frame.setVisible(true);
+					window.frame.setLocationRelativeTo(null);
 				} catch (Exception e) {
 					e.printStackTrace();
 				}

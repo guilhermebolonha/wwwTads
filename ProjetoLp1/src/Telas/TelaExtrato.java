@@ -1,22 +1,15 @@
 package Telas;
 
-import java.awt.EventQueue;
-
-import javax.swing.JFrame;
 import java.awt.Color;
-import javax.swing.JButton;
-import javax.swing.ImageIcon;
-import java.awt.event.ActionListener;
-import java.awt.event.ActionEvent;
-import javax.swing.JList;
-import javax.swing.JTextPane;
-import javax.swing.JTextArea;
-import javax.swing.JSpinner;
-import javax.swing.JTable;
-import javax.swing.JToggleButton;
-import javax.swing.JComboBox;
-import javax.swing.JPasswordField;
+import java.awt.EventQueue;
 import java.awt.Toolkit;
+import java.awt.event.ActionEvent;
+import java.awt.event.ActionListener;
+
+import javax.swing.ImageIcon;
+import javax.swing.JButton;
+import javax.swing.JFrame;
+import javax.swing.JList;
 
 public class TelaExtrato {
 
@@ -31,6 +24,7 @@ public class TelaExtrato {
 				try {
 					TelaExtrato window = new TelaExtrato();
 					window.frmTelaExtrato.setVisible(true);
+					window.frmTelaExtrato.setLocationRelativeTo(null);
 				} catch (Exception e) {
 					e.printStackTrace();
 				}

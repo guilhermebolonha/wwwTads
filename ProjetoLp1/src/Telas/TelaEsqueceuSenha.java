@@ -27,6 +27,7 @@ public class TelaEsqueceuSenha {
 				try {
 					TelaEsqueceuSenha window = new TelaEsqueceuSenha();
 					window.frame.setVisible(true);
+					window.frame.setLocationRelativeTo(null);
 				} catch (Exception e) {
 					e.printStackTrace();
 				}

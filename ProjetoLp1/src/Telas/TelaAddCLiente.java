@@ -30,6 +30,7 @@ public class TelaAddCLiente {
 				try {
 					TelaAddCLiente window = new TelaAddCLiente();
 					window.frmNewClient.setVisible(true);
+					window.frmNewClient.setLocationRelativeTo(null);
 				} catch (Exception e) {
 					e.printStackTrace();
 				}

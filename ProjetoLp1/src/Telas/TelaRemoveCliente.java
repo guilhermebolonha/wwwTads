@@ -26,6 +26,7 @@ public class TelaRemoveCliente {
 				try {
 					TelaRemoveCliente window = new TelaRemoveCliente();
 					window.frmRemoveCliente.setVisible(true);
+					window.frmRemoveCliente.setLocationRelativeTo(null);
 				} catch (Exception e) {
 					e.printStackTrace();
 				}

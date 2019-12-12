@@ -10,6 +10,7 @@ import javax.swing.ImageIcon;
 import javax.swing.JButton;
 import javax.swing.JFrame;
 import javax.swing.JLabel;
+import javax.swing.JOptionPane;
 import javax.swing.JTextField;
 
 public class Login {
@@ -27,6 +28,7 @@ public class Login {
 				try {
 					Login window = new Login();
 					window.frame.setVisible(true);
+					window.frame.setLocationRelativeTo(null);
 				} catch (Exception e) {
 					e.printStackTrace();
 				}
@@ -61,6 +63,7 @@ public class Login {
 				TelaCliente telaCliente = new TelaCliente();
 				telaCliente.iniciar();
 				frame.setVisible(false);
+				JOptionPane.showMessageDialog(null, "Login efetuado com sucesso ");
 			}	
 		});
 		

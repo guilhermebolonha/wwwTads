@@ -28,6 +28,7 @@ public class TelaSaque {
 				try {
 					TelaSaque window = new TelaSaque();
 					window.frmSaque.setVisible(true);
+					window.frmSaque.setLocationRelativeTo(null);
 				} catch (Exception e) {
 					e.printStackTrace();
 				}

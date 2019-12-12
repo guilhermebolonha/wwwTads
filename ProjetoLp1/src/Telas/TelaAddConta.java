@@ -31,6 +31,7 @@ public class TelaAddConta {
 				try {
 					TelaAddConta window = new TelaAddConta();
 					window.frmNewConta.setVisible(true);
+					window.frmNewConta.setLocationRelativeTo(null);
 				} catch (Exception e) {
 					e.printStackTrace();
 				}

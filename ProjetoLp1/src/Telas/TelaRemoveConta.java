@@ -26,6 +26,7 @@ public class TelaRemoveConta {
 				try {
 					TelaRemoveConta window = new TelaRemoveConta();
 					window.frame.setVisible(true);
+					window.frame.setLocationRelativeTo(null);
 				} catch (Exception e) {
 					e.printStackTrace();
 				}

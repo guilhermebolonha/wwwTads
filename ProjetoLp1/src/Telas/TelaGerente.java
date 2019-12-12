@@ -10,7 +10,6 @@ import javax.swing.ImageIcon;
 import javax.swing.JButton;
 import javax.swing.JFrame;
 import javax.swing.JLabel;
-import javax.swing.JOptionPane;
 
 public class TelaGerente {
 
@@ -25,6 +24,7 @@ public class TelaGerente {
 				try {
 					TelaGerente window = new TelaGerente();
 					window.frmTelaGerente.setVisible(true);
+					window.frmTelaGerente.setLocationRelativeTo(null);
 				} catch (Exception e) {
 					e.printStackTrace();
 				}
