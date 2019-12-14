@@ -21,7 +21,10 @@ import LP.Principal;
 public class TelaInicial {
 
 	
+//	public static Agencia agencia;
+	
 	public static Agencia agencia = new Agencia("Santa Teresa");
+
 	public static Gerente gerente = new Gerente("1234", agencia);
 
 	public static JFrame frame;
@@ -50,10 +53,12 @@ public class TelaInicial {
 	public TelaInicial() {
 		
 		
-//		listaAgencia = HandlerArquivo.lerObj("agencia");
-//		listaGerente = HandlerArquivo.lerObj("gerente");
-//		listaCliente = HandlerArquivo.lerObj("cliente");
-//		listaFuncionario = HandlerArquivo.lerObj("funcionario");
+//		Principal.listaAgencia = HandlerArquivo.lerObj("agencia");
+//		Principal.listaGerente = HandlerArquivo.lerObj("gerente");
+//		Principal.listaCliente = HandlerArquivo.lerObj("cliente");
+//		Principal.listaFuncionario = HandlerArquivo.lerObj("funcionario");
+//		
+//		agencia = Principal.listaAgencia.get(0);
 		
 		initialize();
 	}

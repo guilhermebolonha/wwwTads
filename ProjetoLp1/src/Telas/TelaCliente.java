@@ -103,7 +103,7 @@ public class TelaCliente {
 		btnNewButton_3.setBounds(215, 142, 107, 23);
 		frmTelaCliente.getContentPane().add(btnNewButton_3);
 
-		JLabel lblNomeCliente = new JLabel("Nome Cliente" + continha.getCliente().getNome()); 
+		JLabel lblNomeCliente = new JLabel("Olá " + continha.getCliente().getNome()); 
 		lblNomeCliente.setBounds(22, 215, 158, 14);
 		frmTelaCliente.getContentPane().add(lblNomeCliente);
 
