@@ -37,6 +37,10 @@ public class Gerente extends Pessoa implements Serializable { // especialização 
 		this.matricula = matricula;
 	}
 
+	public Gerente(String cpf) {
+		// TODO Auto-generated constructor stub
+	}
+
 	public Agencia getAgencia() {
 		return agencia;
 	}

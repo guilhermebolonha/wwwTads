@@ -57,7 +57,7 @@ public class TelaGerente {
 		frmTelaGerente.setBounds(100, 100, 409, 654);
 		frmTelaGerente.setDefaultCloseOperation(JFrame.EXIT_ON_CLOSE);
 		
-		JButton btnAddClient = new JButton("add Cliente");
+		JButton btnAddClient = new JButton("Add Cliente");
 		btnAddClient.setBounds(44, 166, 105, 23);
 		btnAddClient.addActionListener(new ActionListener() {
 			public void actionPerformed(ActionEvent arg0) {
@@ -70,7 +70,7 @@ public class TelaGerente {
 		frmTelaGerente.getContentPane().setLayout(null);
 		frmTelaGerente.getContentPane().add(btnAddClient);
 		
-		JButton btnAddContas = new JButton("add Contas");
+		JButton btnAddContas = new JButton("Add Contas");
 		btnAddContas.setBounds(217, 166, 105, 23);
 		btnAddContas.addActionListener(new ActionListener() {
 			public void actionPerformed(ActionEvent arg0) {
@@ -182,7 +182,7 @@ public class TelaGerente {
 			    JOptionPane.showMessageDialog(f,"Mês virado com sucesso!");  
 			}
 		});
-		btnVirarOMs.setBounds(153, 531, 89, 23);
+		btnVirarOMs.setBounds(145, 533, 105, 23);
 		frmTelaGerente.getContentPane().add(btnVirarOMs);
 	}
 }

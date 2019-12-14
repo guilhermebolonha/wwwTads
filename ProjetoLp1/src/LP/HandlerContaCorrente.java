@@ -16,7 +16,7 @@ public class HandlerContaCorrente extends HandlerConta {
 
 			if (cliente != null && agencia != null) {
 
-				ContaCorrente contaAux = new ContaCorrente(saldo, 1, cliente);
+				ContaCorrente contaAux = new ContaCorrente(saldo, 1, cliente, cpf);
 
 				agencia.inserirConta(contaAux);
 				System.out.println("Conta Criada\n");
@@ -42,6 +42,11 @@ public class HandlerContaCorrente extends HandlerConta {
 			return conta;
 		else
 			return null;
+	}
+
+	public static void criarContaCorrente() {
+		// TODO Auto-generated method stub
+		
 	}
 
 }

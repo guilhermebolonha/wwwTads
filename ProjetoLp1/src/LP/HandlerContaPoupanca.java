@@ -13,7 +13,7 @@ public class HandlerContaPoupanca extends HandlerConta {
 
 			if (cliente != null && agencia != null) {
 
-				ContaPoupanca contaAux = new ContaPoupanca(saldo, rendimento, cliente);
+				ContaPoupanca contaAux = new ContaPoupanca(saldo, rendimento, cliente, cpf);
 
 				agencia.inserirConta(contaAux);
 
@@ -40,6 +40,11 @@ public class HandlerContaPoupanca extends HandlerConta {
 		else
 			return null;
 
+	}
+
+	public static void criarContaPoupanca() {
+		// TODO Auto-generated method stub
+		
 	}
 
 }
