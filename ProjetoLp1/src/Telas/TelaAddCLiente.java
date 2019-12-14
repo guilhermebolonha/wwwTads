@@ -10,6 +10,7 @@ import javax.swing.ImageIcon;
 import javax.swing.JButton;
 import javax.swing.JFrame;
 import javax.swing.JLabel;
+import javax.swing.JOptionPane;
 import javax.swing.JTextField;
 
 import LP.Cliente;
@@ -21,8 +22,7 @@ public class TelaAddCLiente {
 	private JTextField textField;
 	private JTextField textField_1;
 	private JTextField textField_2;
-	private JTextField textField_3;
-	private JTextField textField_4;
+	JFrame f;
 
 	Cliente clientinho = new Cliente();
 	String nome, CPF, endereco;
@@ -79,11 +79,6 @@ public class TelaAddCLiente {
 		frmNewClient.getContentPane().add(textField_2);
 		textField_2.setColumns(10);
 
-		textField_3 = new JTextField();
-		textField_3.setBounds(90, 313, 136, 20);
-		frmNewClient.getContentPane().add(textField_3);
-		textField_3.setColumns(10);
-
 		JButton btnNewButton = new JButton("");
 		btnNewButton.addActionListener(new ActionListener() {
 			public void actionPerformed(ActionEvent e) {
@@ -95,7 +90,7 @@ public class TelaAddCLiente {
 		btnNewButton.setBounds(23, 23, 46, 23);
 		frmNewClient.getContentPane().add(btnNewButton);
 
-		JButton btnNewButton_1 = new JButton("ok");
+		JButton btnNewButton_1 = new JButton("Ok");
 		btnNewButton_1.addActionListener(new ActionListener() {
 			public void actionPerformed(ActionEvent e) {
 				nome = textField.getText();
@@ -108,42 +103,31 @@ public class TelaAddCLiente {
 				System.out.println(nome+"    " + CPF+ "     " + endereco);
 				if (HandlerCliente.cadastrarCliente(nome, CPF, endereco)) {
 					System.out.println("Cliente cadastrado com sucesso!");
+					f=new JFrame();  
+				    JOptionPane.showMessageDialog(f,"Cliente cadastrado com sucesso!");  
+				    frmNewClient.setVisible(false);
+				    TelaGerente.frmTelaGerente.setVisible(true);
 				}else {
 					System.out.println("Cliente não cadastrado.");
 				}
 
-				frmNewClient.setVisible(false);
-				TelaGerente.frmTelaGerente.setVisible(true);
 
 			}
 		});
-		btnNewButton_1.setBounds(102, 391, 85, 23);
+		btnNewButton_1.setBounds(114, 311, 85, 23);
 		frmNewClient.getContentPane().add(btnNewButton_1);
 
-		JLabel lblNewLabel = new JLabel("nome");
+		JLabel lblNewLabel = new JLabel("Nome");
 		lblNewLabel.setBounds(23, 165, 46, 14);
 		frmNewClient.getContentPane().add(lblNewLabel);
 
-		JLabel lblNewLabel_1 = new JLabel("Cpf");
+		JLabel lblNewLabel_1 = new JLabel("CPF");
 		lblNewLabel_1.setBounds(23, 196, 46, 14);
 		frmNewClient.getContentPane().add(lblNewLabel_1);
 
-		JLabel lblNewLabel_2 = new JLabel("endere\u00E7o");
-		lblNewLabel_2.setBounds(23, 227, 46, 14);
+		JLabel lblNewLabel_2 = new JLabel("Endere\u00E7o");
+		lblNewLabel_2.setBounds(10, 227, 46, 14);
 		frmNewClient.getContentPane().add(lblNewLabel_2);
-
-		JLabel lblNewLabel_3 = new JLabel("Login");
-		lblNewLabel_3.setBounds(23, 316, 46, 14);
-		frmNewClient.getContentPane().add(lblNewLabel_3);
-
-		JLabel lblNewLabel_4 = new JLabel("senha");
-		lblNewLabel_4.setBounds(23, 347, 46, 14);
-		frmNewClient.getContentPane().add(lblNewLabel_4);
-
-		textField_4 = new JTextField();
-		textField_4.setBounds(90, 344, 136, 20);
-		frmNewClient.getContentPane().add(textField_4);
-		textField_4.setColumns(10);
 
 		JLabel label = new JLabel("");
 		label.setIcon(new ImageIcon(TelaAddCLiente.class.getResource("/Imagens/iconAddPerson.png")));

@@ -11,6 +11,7 @@ import javax.swing.ImageIcon;
 import javax.swing.JButton;
 import javax.swing.JFrame;
 import javax.swing.JLabel;
+import javax.swing.JOptionPane;
 import javax.swing.JTextField;
 
 import LP.Conta;
@@ -21,6 +22,7 @@ public class TelaDeposito {
 	private JFrame frmDeposito;
 	private JTextField valor;
 	private static Conta continha;
+	JFrame f;
 
 	/**
 	 * Launch the application.
@@ -85,7 +87,7 @@ public class TelaDeposito {
 		label.setBounds(180, 37, 75, 75);
 		frmDeposito.getContentPane().add(label);
 		
-		JButton btnOk = new JButton("ok");
+		JButton btnOk = new JButton("Ok");
 		btnOk.addActionListener(new ActionListener() {
 			public void actionPerformed(ActionEvent e) {
 				
@@ -93,6 +95,8 @@ public class TelaDeposito {
 
 				if (operacao2.efetuar()) {
 					System.out.println("Efetuado com sucesso");
+					f=new JFrame();  
+				    JOptionPane.showMessageDialog(f,"Conta cadastrada com sucesso!");
 					TelaCliente tela = new TelaCliente();
 					tela.iniciar(continha);			
 					frmDeposito.setVisible(false);

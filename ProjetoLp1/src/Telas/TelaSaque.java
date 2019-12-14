@@ -1,16 +1,18 @@
 package Telas;
 
-import java.awt.EventQueue;
-
-import javax.swing.JFrame;
-import javax.swing.JButton;
-import javax.swing.JTextField;
-import javax.swing.JLabel;
-import javax.swing.ImageIcon;
 import java.awt.Color;
+import java.awt.EventQueue;
 import java.awt.Toolkit;
-import java.awt.event.ActionListener;
 import java.awt.event.ActionEvent;
+import java.awt.event.ActionListener;
+
+import javax.swing.ImageIcon;
+import javax.swing.JButton;
+import javax.swing.JFrame;
+import javax.swing.JLabel;
+import javax.swing.JOptionPane;
+import javax.swing.JTextField;
+
 import LP.Conta;
 import LP.Operacao;
 import LP.Saque;
@@ -20,6 +22,7 @@ public class TelaSaque {
 	private JFrame frmSaque;
 	private JTextField textSaque;
 	private static Conta continha;
+	JFrame f;
 
 	/**
 	 * Launch the application.
@@ -59,18 +62,20 @@ public class TelaSaque {
 		frmSaque.setDefaultCloseOperation(JFrame.EXIT_ON_CLOSE);
 		frmSaque.getContentPane().setLayout(null);
 
-		JButton btnSacar = new JButton("ok");
+		JButton btnSacar = new JButton("Ok");
 		btnSacar.addActionListener(new ActionListener() {
 			public void actionPerformed(ActionEvent e) {
 
 				Operacao operacao = new Saque(continha, Double.valueOf(textSaque.getText()));
 
-				if (operacao.efetuar())
+				if (operacao.efetuar()) {
 					System.out.println("Efetuado com sucesso");
+					f = new JFrame();
+					JOptionPane.showMessageDialog(f, "Saque efetuado com sucesso!");
 
-				else
+				} else {
 					System.err.println("Não foi possivel realizar");
-
+				}
 				frmSaque.setVisible(false);
 				TelaCliente.frmTelaCliente.repaint();
 

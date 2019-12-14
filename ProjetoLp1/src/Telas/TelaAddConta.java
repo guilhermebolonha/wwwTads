@@ -15,6 +15,7 @@ import LP.Principal;
 import LP.Util;
 
 import javax.swing.JLabel;
+import javax.swing.JOptionPane;
 import javax.swing.JRadioButton;
 import java.awt.Font;
 import javax.swing.ImageIcon;
@@ -32,6 +33,7 @@ public class TelaAddConta {
 	private JTextField cpf;
 	private final ButtonGroup buttonGroup = new ButtonGroup();
 	private JTextField senha;
+	JFrame f;
 	
 	 
 
@@ -129,6 +131,9 @@ public class TelaAddConta {
 
 							System.out.println(agencia.lstContas.toString());
 							
+							f=new JFrame();  
+						    JOptionPane.showMessageDialog(f,"Conta cadastrada com sucesso!");
+							
 							TelaGerente.frmTelaGerente.setVisible(true);
 							frmNewConta.setVisible(false);
 						}
@@ -146,6 +151,9 @@ public class TelaAddConta {
 
 							agencia.inserirConta(contaAux);
 							System.out.println("Conta Criada\n");
+							
+							f=new JFrame();  
+						    JOptionPane.showMessageDialog(f,"Conta cadastrada com sucesso!");
 							
 							TelaGerente.frmTelaGerente.setVisible(true);
 							frmNewConta.setVisible(false);

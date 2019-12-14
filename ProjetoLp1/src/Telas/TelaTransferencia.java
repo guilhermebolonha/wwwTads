@@ -8,6 +8,7 @@ import javax.swing.GroupLayout.Alignment;
 import javax.swing.JButton;
 import javax.swing.JFrame;
 import javax.swing.JLabel;
+import javax.swing.JOptionPane;
 import javax.swing.JTextField;
 import javax.swing.LayoutStyle.ComponentPlacement;
 
@@ -27,6 +28,7 @@ public class TelaTransferencia {
 	private JTextField codContaDestino;
 	private JTextField valor;
 	private static Conta continha;
+	JFrame f;
 
 	/**
 	 * Launch the application.
@@ -77,14 +79,14 @@ public class TelaTransferencia {
 		JLabel lblR = new JLabel("R$");
 		lblR.setFont(new Font("Tahoma", Font.PLAIN, 14));
 		
-		JButton btnNewButton = new JButton("ok");
+		JButton btnNewButton = new JButton("Ok");
 		btnNewButton.addActionListener(new ActionListener() {
 			public void actionPerformed(ActionEvent e) {
 				
 				Conta contaAux3;
-				contaAux3 = LP.Util.consultaContaCSW(TelaInicial.agencia, Integer.valueOf(codContaDestino.getText()));
+				contaAux3 = LP.Util.consultaContaCCSW(TelaInicial.agencia, Integer.valueOf(codContaDestino.getText()));
 				if (contaAux3 == null) {					
-					contaAux3 = LP.Util.consultaContaPSW(TelaInicial.agencia, Integer.valueOf(codContaDestino.getText()));
+					contaAux3 = LP.Util.consultaContaPPSW(TelaInicial.agencia, Integer.valueOf(codContaDestino.getText()));
 				}
 
 				if (contaAux3 != null) {
@@ -93,6 +95,8 @@ public class TelaTransferencia {
 
 					if (operacao3.efetuar()) {
 						System.out.println("Efetuado com sucesso");
+						f=new JFrame();  
+					    JOptionPane.showMessageDialog(f,"Transferência realizada com sucesso!");
 						
 						frame.setVisible(false);
 						TelaCliente tela = new TelaCliente();
