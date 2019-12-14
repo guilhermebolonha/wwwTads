@@ -10,6 +10,7 @@ import javax.swing.ImageIcon;
 import javax.swing.JButton;
 import javax.swing.JFrame;
 import javax.swing.JLabel;
+import javax.swing.JOptionPane;
 import javax.swing.JTextField;
 
 import LP.Conta;
@@ -20,6 +21,7 @@ public class Login {
 	private JTextField num_conta;
 	private JTextField num_senha;
 	private static int vldConta;
+	JFrame f;  
 
 	/**
 	 * Launch the application.
@@ -59,24 +61,30 @@ public class Login {
 		frame.setBounds(100, 100, 387, 415);
 		frame.setDefaultCloseOperation(JFrame.EXIT_ON_CLOSE);
 		
-		JButton entrar = new JButton("entrar");
+		JButton entrar = new JButton("Entrar");
 		entrar.setBounds(113, 273, 89, 23);
 		entrar.addActionListener(new ActionListener() {
 			public void actionPerformed(ActionEvent arg0) {
 				
 				switch (vldConta) {
 				case 1:
-					Conta contaAux1 = LP.Util.consultaContaCSW(TelaInicial.agencia, Integer.valueOf(num_conta.getText()));
+					Conta contaAux1 = LP.Util.consultaContaCSW(TelaInicial.agencia, Integer.valueOf(num_conta.getText()), num_senha.getText());
 					if(contaAux1 != null) {
 						TelaCliente.iniciar(contaAux1);
 						frame.setVisible(false);
+					} else {
+						f = new JFrame();  
+					    JOptionPane.showMessageDialog(f,"Conta ou senha incorretos!!");  
 					}
 					break;
 				case 2:
-					Conta contaAux2 = LP.Util.consultaContaPSW(TelaInicial.agencia, Integer.valueOf(num_conta.getText()));
+					Conta contaAux2 = LP.Util.consultaContaPSW(TelaInicial.agencia, Integer.valueOf(num_conta.getText()), num_senha.getText());
 					if(contaAux2 != null) {
 						TelaCliente.iniciar(contaAux2);
 						frame.setVisible(false);
+					} else {
+						f = new JFrame();  
+					    JOptionPane.showMessageDialog(f,"Conta ou senha incorretos!!");  
 					}
 					break;
 				}
@@ -84,11 +92,11 @@ public class Login {
 			}	
 		});
 		
-		JLabel lblConta = new JLabel("conta");
+		JLabel lblConta = new JLabel("Conta");
 		lblConta.setBounds(58, 187, 46, 14);
 		//Conferir a Conta Do Cliente
 		
-		JLabel lblSenha = new JLabel("senha");
+		JLabel lblSenha = new JLabel("Senha");
 		lblSenha.setBounds(58, 228, 46, 14);
 		
 		//Conferir a Senha Do Cliente
@@ -102,24 +110,12 @@ public class Login {
 		num_senha = new JTextField();
 		num_senha.setBounds(114, 225, 194, 20);
 		num_senha.setColumns(10);
-		
-		JButton esqueceu_senha = new JButton("esqueceu a senha");
-		esqueceu_senha.addActionListener(new ActionListener() {
-			public void actionPerformed(ActionEvent e) {
-				TelaEsqueceuSenha tela = new TelaEsqueceuSenha();
-				tela.iniciar();
-				frame.setVisible(false);
-			}
-		});
-		esqueceu_senha.setFont(new Font("Trebuchet MS", Font.PLAIN, 9));
-		esqueceu_senha.setBounds(113, 325, 136, 23);
 		frame.getContentPane().setLayout(null);
 		frame.getContentPane().add(entrar);
 		frame.getContentPane().add(lblConta);
 		frame.getContentPane().add(lblSenha);
 		frame.getContentPane().add(num_conta);
 		frame.getContentPane().add(num_senha);
-		frame.getContentPane().add(esqueceu_senha);
 		
 		JLabel label = new JLabel("");
 		label.setIcon(new ImageIcon(Login.class.getResource("/Imagens/iconPerson.png")));

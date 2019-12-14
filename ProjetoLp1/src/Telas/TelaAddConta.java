@@ -31,6 +31,7 @@ public class TelaAddConta {
 	private JTextField saldoIni;
 	private JTextField cpf;
 	private final ButtonGroup buttonGroup = new ButtonGroup();
+	private JTextField senha;
 	
 	 
 
@@ -72,12 +73,12 @@ public class TelaAddConta {
 		frmNewConta.getContentPane().setLayout(null);
 		
 		saldoIni = new JTextField();
-		saldoIni.setBounds(118, 189, 86, 20);
+		saldoIni.setBounds(118, 185, 86, 20);
 		frmNewConta.getContentPane().add(saldoIni);
 		saldoIni.setColumns(10);
 		
 		JLabel lblSaldoInicial = new JLabel("Saldo Inicial");
-		lblSaldoInicial.setBounds(37, 189, 78, 20);
+		lblSaldoInicial.setBounds(49, 185, 78, 20);
 		frmNewConta.getContentPane().add(lblSaldoInicial);
 		
 		JLabel lblNewLabel = new JLabel("Tipo de Conta");
@@ -109,7 +110,7 @@ public class TelaAddConta {
 		lblNewLabel_1.setBounds(162, 25, 75, 75);
 		frmNewConta.getContentPane().add(lblNewLabel_1);
 		
-		JButton btnOk = new JButton("ok");
+		JButton btnOk = new JButton("Ok");
 		btnOk.addActionListener(new ActionListener() {
 			public void actionPerformed(ActionEvent e) {
 				//Verificar e salvar a nova Conta 
@@ -122,7 +123,7 @@ public class TelaAddConta {
 
 						if (cliente != null && agencia != null) {
 
-							ContaPoupanca contaAux = new ContaPoupanca(Double.valueOf(saldoIni.getText()), 1, cliente);
+							ContaPoupanca contaAux = new ContaPoupanca(Double.valueOf(saldoIni.getText()), 1, cliente, senha.getText());
 
 							agencia.inserirConta(contaAux);
 
@@ -141,7 +142,7 @@ public class TelaAddConta {
 
 						if (cliente != null && agencia != null) {
 
-							ContaCorrente contaAux = new ContaCorrente(Double.valueOf(saldoIni.getText()), 150, cliente);
+							ContaCorrente contaAux = new ContaCorrente(Double.valueOf(saldoIni.getText()), 150, cliente, senha.getText());
 
 							agencia.inserirConta(contaAux);
 							System.out.println("Conta Criada\n");
@@ -160,7 +161,7 @@ public class TelaAddConta {
 				
 			}
 		});
-		btnOk.setBounds(84, 244, 89, 23);
+		btnOk.setBounds(83, 247, 89, 23);
 		frmNewConta.getContentPane().add(btnOk);
 		
 		JButton button = new JButton("");
@@ -175,5 +176,14 @@ public class TelaAddConta {
 		button.setIcon(new ImageIcon(TelaAddConta.class.getResource("/Imagens/iconVoltar.png")));
 		button.setBounds(26, 11, 45, 23);
 		frmNewConta.getContentPane().add(button);
+		
+		senha = new JTextField();
+		senha.setBounds(118, 216, 86, 20);
+		frmNewConta.getContentPane().add(senha);
+		senha.setColumns(10);
+		
+		JLabel lblSenha = new JLabel("Senha");
+		lblSenha.setBounds(73, 216, 78, 20);
+		frmNewConta.getContentPane().add(lblSenha);
 	}
 }

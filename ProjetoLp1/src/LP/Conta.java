@@ -7,6 +7,7 @@ public abstract class Conta implements Serializable {
 	protected static int contador = 0;
 	protected double saldo;
 	protected int codigoConta;
+	protected String senha;
 	protected Cliente cliente;
 	protected ArrayList<Operacao> lstOperacoes;
 
@@ -17,10 +18,11 @@ public abstract class Conta implements Serializable {
 		this.codigoConta = codigo;
 	}
 
-	public Conta(double saldo, Cliente cliente) {
+	public Conta(double saldo, Cliente cliente, String senha) {
 		this.saldo = saldo;
 		this.codigoConta = ++contador;
 		this.cliente = cliente;
+		this.senha = senha;
 		this.lstOperacoes = new ArrayList<Operacao>();
 	}
 
@@ -38,6 +40,14 @@ public abstract class Conta implements Serializable {
 
 	public Cliente getCliente() {
 		return cliente;
+	}
+
+	public String getSenha() {
+		return senha;
+	}
+
+	public void setSenha(String senha) {
+		this.senha = senha;
 	}
 
 	@Override

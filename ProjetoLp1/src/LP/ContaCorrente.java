@@ -15,8 +15,8 @@ public class ContaCorrente extends Conta implements Serializable {
 		super(cod);
 	}
 	
-	public ContaCorrente( double saldo, double limite, Cliente cliente) {
-		super(saldo, cliente);
+	public ContaCorrente( double saldo, double limite, Cliente cliente, String senha) {
+		super(saldo, cliente, senha);
 		this.limite = limite;
 	}
 

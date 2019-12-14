@@ -138,7 +138,7 @@ public static ContaPoupanca consultaContaP(Agencia agenciaAux) {
 
 	}
 
-public static ContaPoupanca consultaContaPSW(Agencia agenciaAux, int codConta1) {
+public static ContaPoupanca consultaContaPSW(Agencia agenciaAux, int codConta1, String senha) {
 	
 	/////////////
 	boolean encontrou = false;
@@ -148,7 +148,10 @@ public static ContaPoupanca consultaContaPSW(Agencia agenciaAux, int codConta1) 
 
 	if (index1 >= 0) {
 		contaAux1 = (ContaPoupanca) agenciaAux.getLstContas().get(index1);
-		encontrou = true;
+		if(contaAux1.getSenha().equals(senha)) {
+			encontrou = true;
+		}
+		
 	} else {
 		System.out.println("Conta não encontrada.");
 	}
@@ -160,15 +163,16 @@ public static ContaPoupanca consultaContaPSW(Agencia agenciaAux, int codConta1) 
 
 }
 
-public static ContaCorrente consultaContaCSW(Agencia agenciaAux, int codConta2) {
+public static ContaCorrente consultaContaCSW(Agencia agenciaAux, int codConta2, String senha) {
 	boolean encontrou = false;
 	ContaCorrente contaAux2 = new ContaCorrente(codConta2);
 	int index2 = agenciaAux.getLstContas().indexOf(contaAux2);
 
 	if (index2 >= 0) {
 		contaAux2 = (ContaCorrente) agenciaAux.getLstContas().get(index2);
-
-		encontrou = true;
+		if(contaAux2.getSenha().equals(senha)) {
+			encontrou = true;
+		}
 
 	} else {
 		System.out.println("Conta não encontrada.");
