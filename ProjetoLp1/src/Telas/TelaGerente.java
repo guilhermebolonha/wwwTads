@@ -142,7 +142,7 @@ public class TelaGerente {
 		frmTelaGerente.getContentPane().add(btnNewButton_1);
 		
 		JButton btnNewButton_2 = new JButton("Listar Clientes");
-		btnNewButton_2.setBounds(54, 447, 105, 23);
+		btnNewButton_2.setBounds(56, 447, 115, 23);
 		btnNewButton_2.addActionListener(new ActionListener() {
 			public void actionPerformed(ActionEvent e) {
 				TelaListaClientes.listar();
@@ -152,7 +152,7 @@ public class TelaGerente {
 		frmTelaGerente.getContentPane().add(btnNewButton_2);
 		
 		JButton btnNewButton_3 = new JButton("Listar Contas");
-		btnNewButton_3.setBounds(227, 447, 105, 23);
+		btnNewButton_3.setBounds(217, 447, 117, 23);
 		btnNewButton_3.addActionListener(new ActionListener() {
 			public void actionPerformed(ActionEvent arg0) {
 				TelaListaContas.listar();
