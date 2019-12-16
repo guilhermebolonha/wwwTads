@@ -22,6 +22,7 @@ public class TelaLoginGerente {
 	static JFrame frame;
 	private JTextField textField;
 	Gerente gerentinho = new Gerente();
+	JFrame f;
 
 	/**
 	 * Launch the application.
@@ -64,11 +65,11 @@ public class TelaLoginGerente {
 		btnOk.addActionListener(new ActionListener() {
 			public void actionPerformed(ActionEvent arg0) {
 				if (HandlerGerente.consultarGerente(textField.getText())) {
-					JOptionPane.showInputDialog("Login efetuado com sucesso");
+					JOptionPane.showMessageDialog(f,"Logim efetuado com sucesso!");
 					TelaGerente.iniciar();
 					frame.setVisible(false);
 				}else {
-					JOptionPane.showInputDialog("Gerente não encontrado");
+					JOptionPane.showMessageDialog(f,"Gerente não encontrado!");
 				}
 				TelaGerente.frmTelaGerente.setVisible(true);
 				frame.setVisible(false);
@@ -81,7 +82,6 @@ public class TelaLoginGerente {
 			public void actionPerformed(ActionEvent arg0) {
 					TelaCadastraGerente.iniciar();
 					frame.setVisible(false);
-				
 			}
 		});
 		

@@ -10,13 +10,13 @@ public class HandlerGerente {
 
 	public static boolean cadastraGerente(String nome, String cpf, String endereco, int matricula, double salario) {
 
-		if (!Principal.listaAgencia.isEmpty()) {
+	//	if (!Principal.listaAgencia.isEmpty()) {
 
 			if (!UtilBanco.pesquisaGerente(cpf)) {
 
-				Agencia agencia = HandlerAgencia.consultarAgencia();
+				//Agencia agencia = HandlerAgencia.consultarAgencia();
 
-				Gerente gerente = new Gerente(nome, cpf, endereco, agencia, salario, matricula);
+				Gerente gerente = new Gerente(nome, cpf, endereco, null, salario, matricula);
 
 				Principal.listaGerente.add(gerente);
 
@@ -24,7 +24,7 @@ public class HandlerGerente {
 				
 				return true;
 			}
-		}
+	//	}
 		return false;
 
 	}
@@ -57,7 +57,7 @@ public class HandlerGerente {
 		iterador = Principal.listaGerente.iterator(); // para o iterador retornar para o início da lista
 
 		while (iterador.hasNext() && !encontrado) {
-			gerenteAux = iterador.next(); // sem casting
+		    gerenteAux = iterador.next(); // sem casting
 			encontrado = gerenteAux.getCpf().equals(cpf);
 		}
 
