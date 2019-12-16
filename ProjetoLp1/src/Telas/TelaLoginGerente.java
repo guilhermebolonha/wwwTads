@@ -19,7 +19,7 @@ import LP.HandlerGerente;
 
 public class TelaLoginGerente {
 
-	static JFrame frame;
+	static JFrame frmLoginGerente;
 	private JTextField textField;
 	Gerente gerentinho = new Gerente();
 	JFrame f;
@@ -32,8 +32,8 @@ public class TelaLoginGerente {
 			public void run() {
 				try {
 					TelaLoginGerente window = new TelaLoginGerente();
-					window.frame.setVisible(true);
-					window.frame.setLocationRelativeTo(null);
+					window.frmLoginGerente.setVisible(true);
+					window.frmLoginGerente.setLocationRelativeTo(null);
 				} catch (Exception e) {
 					e.printStackTrace();
 				}
@@ -52,9 +52,10 @@ public class TelaLoginGerente {
 	 * Initialize the contents of the frame.
 	 */
 	private void initialize() {
-		frame = new JFrame();
-		frame.setBounds(100, 100, 450, 300);
-		frame.setDefaultCloseOperation(JFrame.EXIT_ON_CLOSE);
+		frmLoginGerente = new JFrame();
+		frmLoginGerente.setTitle("Login Gerente");
+		frmLoginGerente.setBounds(100, 100, 450, 300);
+		frmLoginGerente.setDefaultCloseOperation(JFrame.EXIT_ON_CLOSE);
 		
 		JLabel lblMatricula = new JLabel("CPF");
 		
@@ -65,14 +66,11 @@ public class TelaLoginGerente {
 		btnOk.addActionListener(new ActionListener() {
 			public void actionPerformed(ActionEvent arg0) {
 				if (HandlerGerente.consultarGerente(textField.getText())) {
-					JOptionPane.showMessageDialog(f,"Logim efetuado com sucesso!");
 					TelaGerente.iniciar();
-					frame.setVisible(false);
+					frmLoginGerente.setVisible(false);
 				}else {
 					JOptionPane.showMessageDialog(f,"Gerente não encontrado!");
 				}
-				TelaGerente.frmTelaGerente.setVisible(true);
-				frame.setVisible(false);
 			}
 			
 		});
@@ -81,13 +79,13 @@ public class TelaLoginGerente {
 		btnCadastrarGerente.addActionListener(new ActionListener() {
 			public void actionPerformed(ActionEvent arg0) {
 					TelaCadastraGerente.iniciar();
-					frame.setVisible(false);
+					frmLoginGerente.setVisible(false);
 			}
 		});
 		
 		JLabel label = new JLabel("");
 		label.setIcon(new ImageIcon(TelaLoginGerente.class.getResource("/Imagens/iconPerson.png")));
-		GroupLayout groupLayout = new GroupLayout(frame.getContentPane());
+		GroupLayout groupLayout = new GroupLayout(frmLoginGerente.getContentPane());
 		groupLayout.setHorizontalGroup(
 			groupLayout.createParallelGroup(Alignment.LEADING)
 				.addGroup(groupLayout.createSequentialGroup()
@@ -120,6 +118,6 @@ public class TelaLoginGerente {
 						.addComponent(btnCadastrarGerente))
 					.addContainerGap(24, Short.MAX_VALUE))
 		);
-		frame.getContentPane().setLayout(groupLayout);
+		frmLoginGerente.getContentPane().setLayout(groupLayout);
 	}
 }

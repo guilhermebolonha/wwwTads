@@ -10,6 +10,7 @@ import javax.swing.ImageIcon;
 import javax.swing.JButton;
 import javax.swing.JFrame;
 import javax.swing.JLabel;
+import javax.swing.JOptionPane;
 import javax.swing.JTextField;
 import javax.swing.LayoutStyle.ComponentPlacement;
 
@@ -18,7 +19,7 @@ import LP.HandlerGerente;
 
 public class TelaCadastraGerente {
 
-	private JFrame frame;
+	private JFrame frmTelaCadastroDe;
 	private JTextField textField;
 	private JTextField textField_1;
 	private JTextField textField_2;
@@ -26,6 +27,7 @@ public class TelaCadastraGerente {
 	private JTextField textField_4;
 	private JButton btnOk;
 	private JLabel label;
+	JFrame f;
 	
 	Gerente gerentinho = new Gerente();
 
@@ -37,8 +39,8 @@ public class TelaCadastraGerente {
 			public void run() {
 				try {
 					TelaCadastraGerente window = new TelaCadastraGerente();
-					window.frame.setVisible(true);
-					window.frame.setLocationRelativeTo(null);
+					window.frmTelaCadastroDe.setVisible(true);
+					window.frmTelaCadastroDe.setLocationRelativeTo(null);
 				} catch (Exception e) {
 					e.printStackTrace();
 				}
@@ -57,9 +59,10 @@ public class TelaCadastraGerente {
 	 * Initialize the contents of the frame.
 	 */
 	private void initialize() {
-		frame = new JFrame();
-		frame.setBounds(100, 100, 450, 300);
-		frame.setDefaultCloseOperation(JFrame.EXIT_ON_CLOSE);
+		frmTelaCadastroDe = new JFrame();
+		frmTelaCadastroDe.setTitle("Tela Cadastro de Gerente");
+		frmTelaCadastroDe.setBounds(100, 100, 450, 300);
+		frmTelaCadastroDe.setDefaultCloseOperation(JFrame.EXIT_ON_CLOSE);
 		
 		JLabel lblInformeOCpf = new JLabel("CPF");
 		
@@ -97,18 +100,18 @@ public class TelaCadastraGerente {
 				double salario = (Double.valueOf(textField_4.getText()));
 				
 				if (HandlerGerente.cadastraGerente(nome, cpf, endereco, matricula, salario)) {
-					
+					JOptionPane.showMessageDialog(f,"Gerente cadastrado com sucesso!");
+					TelaLoginGerente.frmLoginGerente.setVisible(true);
+					frmTelaCadastroDe.setVisible(false);
 				} else {
-
+					JOptionPane.showMessageDialog(f,"Erro");
 				}
-				TelaLoginGerente.frame.setVisible(true);
-				frame.setVisible(false);
 			}
 		});
 		
 		label = new JLabel("");
 		label.setIcon(new ImageIcon(TelaCadastraGerente.class.getResource("/Imagens/iconAddPerson.png")));
-		GroupLayout groupLayout = new GroupLayout(frame.getContentPane());
+		GroupLayout groupLayout = new GroupLayout(frmTelaCadastroDe.getContentPane());
 		groupLayout.setHorizontalGroup(
 			groupLayout.createParallelGroup(Alignment.LEADING)
 				.addGroup(Alignment.TRAILING, groupLayout.createSequentialGroup()
@@ -174,7 +177,7 @@ public class TelaCadastraGerente {
 					.addComponent(btnOk)
 					.addGap(25))
 		);
-		frame.getContentPane().setLayout(groupLayout);
+		frmTelaCadastroDe.getContentPane().setLayout(groupLayout);
 	}
 
 }
