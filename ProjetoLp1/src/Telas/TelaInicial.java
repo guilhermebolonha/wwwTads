@@ -86,7 +86,7 @@ public class TelaInicial {
 		btnNewButton.setIcon(null);
 		btnNewButton.addActionListener(new ActionListener() {
 			public void actionPerformed(ActionEvent arg0) {
-				TelaGerente.iniciar();
+				TelaLoginGerente.iniciar();
 				frame.setVisible(false);
 			}
 		});

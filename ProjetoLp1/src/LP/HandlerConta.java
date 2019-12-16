@@ -182,10 +182,10 @@ public class HandlerConta {
 			int op1 = Util.leInt(entrada);
 			switch (op1) {
 			case 1:
-				HandlerContaPoupanca.criarContaPoupanca();
+		//		HandlerContaPoupanca.criarContaPoupanca();
 				break;
 			case 2:
-				HandlerContaCorrente.criarContaCorrente();
+		//		HandlerContaCorrente.criarContaCorrente();
 
 				break;
 			case 0:

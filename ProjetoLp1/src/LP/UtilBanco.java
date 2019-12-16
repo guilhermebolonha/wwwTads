@@ -244,7 +244,7 @@ public class UtilBanco {
 	public static boolean pesquisaGerente(String cpf) {
 		boolean encontrado = false;
 
-		Gerente gerenteAux = new Gerente(cpf);
+		Gerente gerenteAux = null;
 		Iterator<Gerente> iterador = Principal.listaGerente.iterator();
 		iterador = Principal.listaGerente.iterator(); // para o iterador retornar para o início da lista
 

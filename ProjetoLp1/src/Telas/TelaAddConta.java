@@ -97,6 +97,11 @@ public class TelaAddConta {
 		buttonGroup.add(rdbtnContaCorrente);
 		rdbtnContaCorrente.setBounds(18, 100, 109, 23);
 		frmNewConta.getContentPane().add(rdbtnContaCorrente);
+		if (rdbtnContaCorrente.isSelected()) {
+			TelaGerente.iniciar();
+			frmNewConta.setVisible(false);
+		}
+		
 		
 		JLabel lblCpfDoCliente = new JLabel("CPF do Cliente");
 		lblCpfDoCliente.setBounds(36, 147, 91, 27);
