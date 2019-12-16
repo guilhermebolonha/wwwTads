@@ -43,14 +43,17 @@ public class ContaCorrente extends Conta implements Serializable {
 	}
 
 	public boolean sacar(double valor) {
-		boolean saque = false;
 
-		if (this.saldo - valor <= 0 ) {
+		double limiteSaque = this.saldo + this.limite;
+
+		if (limiteSaque >= valor) {
 			this.saldo -= valor;
-			saque = true;
+			System.out.println("Operação aprovada");
+			return true;
 		}
-
-		return saque;
+		System.out.println("Saldo insuficiente");
+		return false;
+		
 	}
 
 

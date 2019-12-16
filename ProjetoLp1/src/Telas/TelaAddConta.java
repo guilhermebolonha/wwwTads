@@ -130,7 +130,7 @@ public class TelaAddConta {
 
 						if (cliente != null && agencia != null) {
 
-							ContaPoupanca contaAux = new ContaPoupanca(Double.valueOf(saldoIni.getText()), 1, cliente, senha.getText());
+							ContaPoupanca contaAux = new ContaPoupanca(Double.valueOf(saldoIni.getText()), 0.05, cliente, senha.getText());
 
 							agencia.inserirConta(contaAux);
 

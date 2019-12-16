@@ -19,9 +19,9 @@ import LP.HandlerCliente;
 public class TelaAddCLiente {
 
 	public static JFrame frmNewClient;
-	private JTextField textField;
-	private JTextField textField_1;
-	private JTextField textField_2;
+	private JTextField txtnome;
+	private JTextField txtcpf;
+	private JTextField txtendereco;
 	JFrame f;
 
 	Cliente clientinho = new Cliente();
@@ -30,7 +30,7 @@ public class TelaAddCLiente {
 	/**
 	 * Launch the application.
 	 */
-	public static void main(String[] args) {
+	public static void iniciar() {
 		EventQueue.invokeLater(new Runnable() {
 			public void run() {
 				try {
@@ -64,20 +64,20 @@ public class TelaAddCLiente {
 		frmNewClient.setDefaultCloseOperation(JFrame.EXIT_ON_CLOSE);
 		frmNewClient.getContentPane().setLayout(null);
 
-		textField = new JTextField();
-		textField.setBounds(90, 162, 160, 20);
-		frmNewClient.getContentPane().add(textField);
-		textField.setColumns(10);
+		txtnome = new JTextField();
+		txtnome.setBounds(90, 162, 160, 20);
+		frmNewClient.getContentPane().add(txtnome);
+		txtnome.setColumns(10);
 
-		textField_1 = new JTextField();
-		textField_1.setBounds(90, 193, 160, 20);
-		frmNewClient.getContentPane().add(textField_1);
-		textField_1.setColumns(10);
+		txtcpf = new JTextField();
+		txtcpf.setBounds(90, 193, 160, 20);
+		frmNewClient.getContentPane().add(txtcpf);
+		txtcpf.setColumns(10);
 
-		textField_2 = new JTextField();
-		textField_2.setBounds(90, 224, 160, 20);
-		frmNewClient.getContentPane().add(textField_2);
-		textField_2.setColumns(10);
+		txtendereco = new JTextField();
+		txtendereco.setBounds(90, 224, 160, 20);
+		frmNewClient.getContentPane().add(txtendereco);
+		txtendereco.setColumns(10);
 
 		JButton btnNewButton = new JButton("");
 		btnNewButton.addActionListener(new ActionListener() {
@@ -93,11 +93,11 @@ public class TelaAddCLiente {
 		JButton btnNewButton_1 = new JButton("Ok");
 		btnNewButton_1.addActionListener(new ActionListener() {
 			public void actionPerformed(ActionEvent e) {
-				nome = textField.getText();
-				clientinho.setNome(nome);
-				CPF = textField_1.getText();
+				nome = txtnome.getText();
+				clientinho.setNome(txtnome.getText());
+				CPF = txtcpf.getText();
 				clientinho.setCpf(CPF);
-				endereco = textField_2.getText();
+				endereco = txtendereco.getText();
 				clientinho.setEndereco(endereco);
 				
 				System.out.println(nome+"    " + CPF+ "     " + endereco);

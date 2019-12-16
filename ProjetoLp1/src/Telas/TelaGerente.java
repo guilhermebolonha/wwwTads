@@ -61,8 +61,7 @@ public class TelaGerente {
 		btnAddClient.setBounds(44, 166, 105, 23);
 		btnAddClient.addActionListener(new ActionListener() {
 			public void actionPerformed(ActionEvent arg0) {
-				TelaAddCLiente tela = new TelaAddCLiente();
-				tela.main(null);
+				TelaAddCLiente.iniciar();
 				frmTelaGerente.setVisible(false);
 				
 			}
@@ -74,8 +73,7 @@ public class TelaGerente {
 		btnAddContas.setBounds(217, 166, 105, 23);
 		btnAddContas.addActionListener(new ActionListener() {
 			public void actionPerformed(ActionEvent arg0) {
-				TelaAddConta tela = new TelaAddConta();
-				tela.iniciar();
+				TelaAddConta.iniciar();
 				frmTelaGerente.setVisible(false);
 			}
 		});

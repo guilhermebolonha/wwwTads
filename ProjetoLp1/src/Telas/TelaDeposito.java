@@ -76,7 +76,7 @@ public class TelaDeposito {
 		frmDeposito.getContentPane().setLayout(null);
 		
 		JLabel lblSaldo = new JLabel("Saldo Atual " + continha.getSaldo());
-		lblSaldo.setBounds(25, 54, 120, 33);
+		lblSaldo.setBounds(25, 54, 145, 33);
 		frmDeposito.getContentPane().add(lblSaldo);
 		frmDeposito.getContentPane().add(lblQualOValor);
 		frmDeposito.getContentPane().add(lblR);
@@ -96,7 +96,7 @@ public class TelaDeposito {
 				if (operacao2.efetuar()) {
 					System.out.println("Efetuado com sucesso");
 					f=new JFrame();  
-				    JOptionPane.showMessageDialog(f,"Conta cadastrada com sucesso!");
+				    JOptionPane.showMessageDialog(f,"Depósito realizado com sucesso!");
 					TelaCliente tela = new TelaCliente();
 					tela.iniciar(continha);			
 					frmDeposito.setVisible(false);
